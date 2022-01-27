@@ -2,10 +2,12 @@ import numpy as np
 import json
 from pathlib import Path
 
+
 def read_data(data_folder, file_name):
     file = data_folder + file_name
 
     n = int(file_name.split("_")[0])
+    file = Path(file)
     dij = np.zeros((n, n))
     Dij = np.zeros((n, n))
 
