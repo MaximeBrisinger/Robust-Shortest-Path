@@ -8,8 +8,6 @@ function build_dual(input_graph)
 
     model = Model(CPLEX.Optimizer)
 
-    #@variable(model, x[a=self.technicians_adjacency_matrix_indexes; self.tasks[self.nodes[a[2]].task].priority == 0 && self.tasks[self.nodes[a[3]].task].priority == 0], binary=true)
-
     @variable(model, x[a=[(arc[1], arc[2]) for arc in input_graph.arcs]], binary=true)
     @variable(model, t1, lower_bound=0)
     @variable(model, t2, lower_bound=0)

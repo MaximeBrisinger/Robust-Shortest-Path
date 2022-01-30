@@ -79,7 +79,5 @@ function readData(data_path)
 
 end
 
-#println(readData("data/20_USA-road-d.NY.gr"))
-
 end
 
