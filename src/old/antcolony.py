@@ -15,6 +15,8 @@ class AntColony:
         self.ants = []
         self.nb_ants = 10
 
+        self.pheromones = {edge: 0.1 for edge in self.graph.edges}
+
     # pour le coût, on peut ajouter min(sum(Dij), d1)
 
     def init_ants(self):
