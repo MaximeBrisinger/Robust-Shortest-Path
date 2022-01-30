@@ -1,5 +1,6 @@
 include("data.jl")
 
+#ENV["CPLEX_STUDIO_BINARIES"] = "C:/Program Files/IBM/ILOG/CPLEX_Studio1210/cplex/bin/x64_win64/"
 ENV["CPLEX_STUDIO_BINARIES"] = "/opt/ibm/ILOG/CPLEX_Studio201/cplex/bin/x86-64_linux/"
 import .dataUtils
 using JuMP, CPLEX
@@ -52,5 +53,5 @@ function solve_dual(model, CPU_time_limit)
 end
 
 time_limit = 60
-model = build_dual(dataUtils.readData("data/20_USA-road-d.NY.gr"))
+model = build_dual(dataUtils.readData("src/data/160_USA-road-d.NY.gr"))
 solve_dual(model, time_limit)
