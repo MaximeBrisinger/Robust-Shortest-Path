@@ -2,6 +2,10 @@ from docplex.mp.model import Model
 import time
 from src.utils import read_data, solve_and_display, previous_nodes, next_nodes, save_results
 
+# import os
+
+# os.environ["CPLEX_STUDIO_BINARIES"] = "C:/Program Files/IBM/ILOG/CPLEX_Studio1210/cplex/bin/x64_win64/"
+
 
 def duality(file_name, time_limit):
     data_folder = "src/data/"
