@@ -46,9 +46,10 @@ def read_data(data_folder, file_name):
 
 def solve_and_display(model):
     model.print_information()
-    model.solve()
+    md_solve = model.solve()
     model.print_solution()
     print()
+    return md_solve
 
 
 def next_nodes(edges, i):

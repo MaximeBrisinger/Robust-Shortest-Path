@@ -1,6 +1,6 @@
 from docplex.mp.model import Model
 import time
-from src.utils import read_data, solve_and_display, previous_nodes, next_nodes, save_results
+from src.old.utils import read_data, solve_and_display, previous_nodes, next_nodes, save_results
 
 # import os
 
@@ -65,7 +65,10 @@ def duality(file_name, time_limit):
     md.set_objective("min", d1 * t1 + obj_expression_d + obj_expression_D)
 
     start = time.time()
-    solve_and_display(md)
+    md_solve = solve_and_display(md)
+    for (i, j) in x:
+        if md_solve[x[i, j]]:
+            print((i, j), md_solve[x[i, j]])
     execution_time = round(time.time() - start, 5)
 
     save_results(md.objective_value, execution_time, file_name, "duality")
