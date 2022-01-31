@@ -21,6 +21,8 @@ class InputGraph:
         self.nx_graph = self.init_nx_graph()
         self.ut_distances = self.init_ut_distances()
 
+        self.min_distance = sorted(self.ut_distances.items(), key=lambda item: item[1])[1][1]
+
     def init_nx_graph(self):
         graph = nx.DiGraph()
         graph.add_nodes_from(self.nodes)

@@ -7,6 +7,7 @@ class Ant:
     def __init__(self, nodes_explored: list):
         self.nodes = nodes_explored
         self.edges = self.get_edges()
+        self.worst_cost = None
 
     def get_edges(self):
         return [(self.nodes[i], self.nodes[i + 1]) for i in range(len(self.nodes) - 1)]
@@ -27,8 +28,6 @@ class Ant:
         md.solve()
         execution_time = round(time.time() - start, 5)
         # md.print_solution()
-
-        print(f"time : {execution_time}")
 
         return md.objective_value
 
@@ -53,9 +52,9 @@ class Ant:
         execution_time = round(time.time() - start, 5)
         # md.print_solution()
 
-        print(f"time : {execution_time}")
+        self.worst_cost = md.objective_value
 
-        return md.objective_value
+        return self.worst_cost
 
 
 if __name__ == '__main__':
