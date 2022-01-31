@@ -1,10 +1,10 @@
 import argparse
 from pathlib import Path
-import src.with_dual
+import src.old.with_dual
 
 
 def main(args):
-    getattr(src.with_dual, args.method)(args.input, args.time_limit)
+    getattr(src.old.with_dual, args.method)(args.input, args.time_limit)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,6 @@
 include("data.jl")
 
+#ENV["CPLEX_STUDIO_BINARIES"] = "C:/Program Files/IBM/ILOG/CPLEX_Studio1210/cplex/bin/x64_win64/"
 ENV["CPLEX_STUDIO_BINARIES"] = "/opt/ibm/ILOG/CPLEX_Studio201/cplex/bin/x86-64_linux/"
 import .dataUtils
 using JuMP, CPLEX
