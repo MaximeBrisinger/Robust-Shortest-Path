@@ -31,14 +31,7 @@ function SP1(arcs, input_graph)
         end
         i += 1
     end
-    # if arcs[1][1] == 10 && arcs[1][2] == 9 && arcs[2][1] == 9 && arcs[2][2] == 6
-    #     println()
-    #     println(input_graph.d1)
-    #     println([(a[1], a[2]) for a in arcs])
-    #     println(sol_sp1)
-    #     println(sum(a[3] for a in arcs) + val_sp1)
-    #     println()
-    # end
+
     return sol_sp1, sum(a[3] for a in arcs) + val_sp1
 end
 
@@ -108,7 +101,7 @@ function init_master_Problem(input_graph, U1, U2)
     return model
 end
 
-function cutting_planes(input_graph, CPU_time_limit)
+function branch_and_cut_integer(input_graph, CPU_time_limit)
     U1 = []
     U2 = []
 
@@ -216,4 +209,4 @@ function cutting_planes(input_graph, CPU_time_limit)
 end
 
 time_limit = 60
-model = cutting_planes(dataUtils.readData("data/20_USA-road-d.BAY.gr"), time_limit)
+model = branch_and_cut_integer(dataUtils.readData("data/20_USA-road-d.NY.gr"), time_limit)

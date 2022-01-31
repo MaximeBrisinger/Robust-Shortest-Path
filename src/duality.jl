@@ -101,5 +101,5 @@ function solve_dual(input_graph, CPU_time_limit)
 end
 
 time_limit = 60
-input_graph = dataUtils.readData("data/20_USA-road-d.BAY.gr")
+input_graph = dataUtils.readData("data/20_USA-road-d.NY.gr")
 solve_dual(input_graph, time_limit)
