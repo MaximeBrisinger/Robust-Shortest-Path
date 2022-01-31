@@ -4,7 +4,7 @@ import Unicode
 
 export IntputGraph, readData
  
- mutable struct InputGraph
+mutable struct InputGraph
     n::Int64
     s::Int64
     t::Int64
@@ -18,6 +18,8 @@ export IntputGraph, readData
     ceil_uncert_traveltime::Array{Float64,2}
  end
 
+
+ 
 function readData(data_path)
     """
     charge les donees
