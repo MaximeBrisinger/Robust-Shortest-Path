@@ -1,4 +1,5 @@
 from src.old.utils import read_data, previous_nodes, next_nodes
+import networkx as nx
 
 
 class InputGraph:
@@ -16,6 +17,26 @@ class InputGraph:
 
         self.edges = [(i + 1, j + 1) for i in range(self.n) for j in range(self.n) if self.d[i][j] != 0]
         self.nodes = [i for i in range(1, self.n + 1)]
+
+        self.nx_graph = self.init_nx_graph()
+        self.ut_distances = self.init_ut_distances()
+
+    def init_nx_graph(self):
+        graph = nx.DiGraph()
+        graph.add_nodes_from(self.nodes)
+        for (i, j) in self.edges:
+            worst_weight = self.get_d(i, j) * (1 + self.get_D(i, j))
+            graph.add_edge(i, j, weight=worst_weight)
+        return graph
+
+    def get_shortest_path(self, s, t):
+        return nx.shortest_path(self.nx_graph, source=s, target=t, weight="weight")
+
+    def init_ut_distances(self):
+        ut_distances = {node: 0 for node in self.nodes}
+        for u in self.nodes:
+            ut_distances[u] = nx.shortest_path_length(self.nx_graph, source=u, target=self.t, weight="weight")
+        return ut_distances
 
     def get_previous_nodes(self, node):
         return previous_nodes(self.edges, node)
