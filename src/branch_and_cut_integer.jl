@@ -1,11 +1,10 @@
 # include("data.jl")
 
-module CuttingPlanes
+module BranchAndCut
 
-export cutting_planes
+export branch_and_cut_integer
 
 ENV["CPLEX_STUDIO_BINARIES"] = "/opt/ibm/ILOG/CPLEX_Studio201/cplex/bin/x86-64_linux/"
-
 
 include("data.jl")
 using .dataUtils
@@ -108,9 +107,61 @@ function init_master_Problem(input_graph, U1, U2)
     return model
 end
 
-function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
+function branch_and_cut_integer(input_graph, dict_row, verbose, CPU_time_limit)
     U1 = []
     U2 = []
+    n_added_cuts = 0
+    function isIntegerPoint(cb_data::CPLEX.CallbackContext, context_id::Clong)
+
+        if context_id != CPX_CALLBACKCONTEXT_CANDIDATE
+            return false
+        end
+        ispoint_p = Ref{Cint}()
+        ret = CPXcallbackcandidateispoint(cb_data, ispoint_p)
+
+        if ret != 0 || ispoint_p[] == 0
+            return false
+        else
+            return true
+        end
+    end
+
+
+    function callback_add_constraints(cb_data::CPLEX.CallbackContext, context_id::Clong)
+        """
+        cb_data : 
+        context_id :
+        """
+        if isIntegerPoint(cb_data, context_id)
+    
+            CPLEX.load_callback_variable_primal(cb_data, context_id)
+
+
+            x_val = callback_value.(Ref(cb_data), x)
+            y_val = callback_value.(Ref(cb_data), y)
+            z_val = callback_value.(Ref(cb_data), z)
+
+            # SP1
+            eps = 10 ^ (-5)
+            arcs = [(a[1], a[2], input_graph.traveltime_matrix[a[1], a[2]], input_graph.ceil_uncert_traveltime[a[1], a[2]]) for a in input_graph.arcs if x_val[(a[1], a[2])] >= 1-eps]
+            sol_sp1, val_sp1 = SP1(arcs, input_graph)
+    
+    
+            # SP2
+            vertexes = [(i, input_graph.weights[i], input_graph.weights_uncert[i]) for i in 1:input_graph.n if y_val[i] >= 1-eps]
+            sol_sp2, val_sp2 = SP2(vertexes, input_graph)
+    
+            if !(abs(z_val - val_sp1) < eps && input_graph.S >= val_sp2) #solution non optimale
+                cstr1 = @build_constraint(z >= sum(a[3] * (1 + a[4]) * x[(a[1], a[2])] for a in sol_sp1))
+                MOI.submit(model, MOI.LazyConstraint(cb_data), cstr1)
+    
+                cstr2 = @build_constraint(sum(y[v[1]] * (v[2] + v[3] * v[4]) for v in sol_sp2) <= input_graph.S)
+                MOI.submit(model, MOI.LazyConstraint(cb_data), cstr2)
+
+                n_added_cuts += 2
+            end
+        end
+    end
     
     # MODEL DEFINITION 
     model = Model(CPLEX.Optimizer)
@@ -135,7 +186,6 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
     @constraint(model, flow_t1, inflow[input_graph.t] == 1)
     @constraint(model, flow_t2, outflow[input_graph.t] == 0)
 
-
     #SETTING Y VALUES
     @constraint(model, set_y[i=1:input_graph.n; i!=input_graph.t], outflow[i] - y[i] == 0)
     @constraint(model, set_yt, inflow[input_graph.t] - y[input_graph.t] == 0)
@@ -143,36 +193,10 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
     #CAPACITY
     @constraint(model, set_capas[s=1:length(U2)], sum(U2[s][i] * y[i] for i in 1:input_graph.n) <= input_graph.S)
 
-
     MOI.set(model, MOI.NumberOfThreads(), 1)
-
-    contin = true
-    start = time()
-    n_solve = 0
-    while contin
-        set_time_limit_sec(model, CPU_time_limit - (time()-start))
-        optimize!(model)
-        n_solve += 1
-        x_val = value.(x)
-        y_val = value.(y)
-        z_val = value.(z)
-
-        eps = 10 ^ (-5)
-        arcs = [(a[1], a[2], input_graph.traveltime_matrix[a[1], a[2]], input_graph.ceil_uncert_traveltime[a[1], a[2]]) for a in input_graph.arcs if x_val[(a[1], a[2])] >= 1-eps]
-        sol_sp1, val_sp1 = SP1(arcs, input_graph)
-
-        # SP2
-        vertexes = [(i, input_graph.weights[i], input_graph.weights_uncert[i]) for i in 1:input_graph.n if y_val[i] >= 1-eps]
-        sol_sp2, val_sp2 = SP2(vertexes, input_graph)
-
-        if !(abs(z_val - val_sp1) < eps && input_graph.S >= val_sp2) #solution non optimale
-            @constraint(model, z >= sum(a[3] * (1 + a[4]) * x[(a[1], a[2])] for a in sol_sp1))
-            @constraint(model, sum(y[v[1]] * (v[2] + v[3] * v[4]) for v in sol_sp2) <= input_graph.S)
-        else 
-            contin = false
-        end
-    end
-
+    set_time_limit_sec(model, CPU_time_limit)
+    MOI.set(model, CPLEX.CallbackFunction(), callback_add_constraints)
+    optimize!(model)
 
     if verbose
         println("SOLUTION :")
@@ -199,7 +223,7 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
     push!(dict_row, "termination status" => (termination_status(model) == MOI.OPTIMAL))
     push!(dict_row, "has_value" => has_values(model))
     push!(dict_row, "is_feasible" => (primal_status(model) == MOI.FEASIBLE_POINT))
-    push!(dict_row, "n_solves" => n_solve)
+    push!(dict_row, "n_added_cuts" => n_added_cuts)
 
     if has_values(model)
         push!(dict_row, "Objective value" => objective_value(model))
@@ -210,10 +234,11 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
         push!(dict_row, "Gap" => missing)
         push!(dict_row, "objective bound" => missing)
     end
+
     return dict_row
 end
 
 # time_limit = 60
-# model = cutting_planes(dataUtils.readData("data/20_USA-road-d.NY.gr"), time_limit)
+# model = branch_and_cut_integer(dataUtils.readData("data/20_USA-road-d.NY.gr"), time_limit)
 
 end

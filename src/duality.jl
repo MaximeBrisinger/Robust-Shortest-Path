@@ -1,10 +1,17 @@
-include("data.jl")
 
-#ENV["CPLEX_STUDIO_BINARIES"] = "C:/Program Files/IBM/ILOG/CPLEX_Studio1210/cplex/bin/x64_win64/"
+
+module Duality
+
+export solve_dual
+
 ENV["CPLEX_STUDIO_BINARIES"] = "/opt/ibm/ILOG/CPLEX_Studio201/cplex/bin/x86-64_linux/"
-import .dataUtils
+
+include("data.jl")
+using .dataUtils
+
 using JuMP, CPLEX
 
+#devenue inutile
 function build_dual(input_graph)
 
     model = Model(CPLEX.Optimizer)
@@ -44,7 +51,7 @@ function build_dual(input_graph)
     return model
 end
 
-function solve_dual(input_graph, CPU_time_limit)
+function solve_dual(input_graph, dict_row, verbose, CPU_time_limit)
 
     model = Model(CPLEX.Optimizer)
 
@@ -83,23 +90,51 @@ function solve_dual(input_graph, CPU_time_limit)
     @constraint(model, set_t1[a=[(arc[1], arc[2]) for arc in input_graph.arcs]], t1 + z[a] >= input_graph.traveltime_matrix[a[1], a[2]] * x[a])
     @constraint(model, set_t2[i=1:input_graph.n], t2 + z_prime[i] >= input_graph.weights_uncert[i] * y[i])
 
+    
 
-    println("")
-    println("---------- Resolution ----------")
     set_time_limit_sec(model, CPU_time_limit)
     optimize!(model)
-    println(objective_value(model))
+    
 
-    x_val = value.(x)
-    eps = 10^(-5)
-    for a in input_graph.arcs
-        if x_val[a] > 1-eps
-            println(a[1], "->", a[2], " ", input_graph.traveltime_matrix[a[1], a[2]], " ", input_graph.ceil_uncert_traveltime[a[1], a[2]])
+    if verbose
+        println("SOLUTION :")
+        println("VALEUR ", objective_value(model))
+        x_val = value.(x)
+        eps = 10^(-5)
+        for a in input_graph.arcs
+            if x_val[a] > 1-eps
+                println(a[1], "->", a[2], " ", input_graph.traveltime_matrix[a[1], a[2]], " ", input_graph.ceil_uncert_traveltime[a[1], a[2]])
+            end
+        end
+        println()
+        for i in 1:input_graph.n
+            if y_val[i] > 1-eps
+                println(i, " ", input_graph.weights[i], " ", input_graph.weights_uncert[i])
+            end
         end
     end
-        
+
+    push!(dict_row, "Nombre de variables" => numvar(model))
+    push!(dict_row, "Time (s)" => solve_time(model))
+    push!(dict_row, "Time limit (s)" => CPU_time_limit)
+    push!(dict_row, "Nombre de noeuds" => node_count(model))
+    push!(dict_row, "termination status" => (termination_status(model) == MOI.OPTIMAL))
+    push!(dict_row, "has_value" => has_values(model))
+    push!(dict_row, "is_feasible" => (primal_status(model) == MOI.FEASIBLE_POINT))
+
+    if has_values(model)
+        push!(dict_row, "Objective value" => objective_value(model))
+        push!(dict_row, "objective bound" => objective_bound(model))
+        push!(dict_row, "Gap" => MOI.get(model, MOI.RelativeGap()))
+    else
+        push!(dict_row, "Objective value" => missing)
+        push!(dict_row, "Gap" => missing)
+        push!(dict_row, "objective bound" => missing)
+    end
+    return dict_row
 end
 
-time_limit = 60
-input_graph = dataUtils.readData("data/20_USA-road-d.NY.gr")
-solve_dual(input_graph, time_limit)
+# time_limit = 60
+# input_graph = dataUtils.readData("data/20_USA-road-d.NY.gr")
+# solve_dual(input_graph, time_limit)
+end 
