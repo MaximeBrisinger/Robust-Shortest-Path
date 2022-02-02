@@ -1,3 +1,11 @@
 Gap,Nombre de noeuds,Nombre de variables,Objective value,Time (s),Time limit (s),has_value,is_feasible,n_added_cuts,objective bound,path,termination status
 0.0,13694,155,7076.52,3.6942059993743896,100.0,true,true,1238,7076.52,data/20_USA-road-d.COL.gr,true
 0.0,2328,141,9454.47,1.8513898849487305,100.0,true,true,406,9454.47,data/20_USA-road-d.NY.gr,true
+,165486,163,,100.01085877418518,100.0,false,false,648974,,data/20_USA-road-d.BAY.gr,false
+,164150,163,,100.00044107437134,100.0,false,false,643698,,data/20_USA-road-d.BAY.gr,false
+,161738,163,,100.0003490447998,100.0,false,false,634110,,data/20_USA-road-d.BAY.gr,false
+,130482,163,,100.00057101249695,100.0,false,false,511044,,data/20_USA-road-d.BAY.gr,false
+0.0,0,163,0.0,1.2855861186981201,100.0,true,true,0,0.0,data/20_USA-road-d.BAY.gr,true
+,120842,163,,100.0003080368042,100.0,false,false,472842,,data/20_USA-road-d.BAY.gr,false
+,134024,163,,100.00028395652771,100.0,false,false,525208,,data/20_USA-road-d.BAY.gr,false
+0.3566492426471842,104923,431,17330.100000000002,100.00193405151367,100.0,true,true,31916,11149.33296,data/40_USA-road-d.NY.gr,false

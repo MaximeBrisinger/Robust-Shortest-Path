@@ -32,6 +32,7 @@ function main(mode, verbose, path_to_data, CPU_time_limit)
 
         if isfile("saves/benchmark_BC.csv")
             df = DataFrame(CSV.File("saves/benchmark_BC.csv"))
+            allowmissing!(df)
             append!(df, DataFrame(dict_row))
         else
             df = DataFrame(dict_row)
@@ -46,6 +47,7 @@ function main(mode, verbose, path_to_data, CPU_time_limit)
 
         if isfile("saves/benchmark_CP.csv")
             df = DataFrame(CSV.File("saves/benchmark_CP.csv"))
+            allowmissing!(df)
             append!(df, DataFrame(dict_row))
         else
             df = DataFrame(dict_row)

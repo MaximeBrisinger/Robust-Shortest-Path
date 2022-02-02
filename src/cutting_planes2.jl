@@ -147,7 +147,9 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
     MOI.set(model, MOI.NumberOfThreads(), 1)
 
     contin = true
+    optim = false
     start = time()
+    eps = 10 ^ (-5)
     n_solve = 0
     while contin
         set_time_limit_sec(model, CPU_time_limit - (time()-start))
@@ -157,7 +159,8 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
         y_val = value.(y)
         z_val = value.(z)
 
-        eps = 10 ^ (-5)
+
+               
         arcs = [(a[1], a[2], input_graph.traveltime_matrix[a[1], a[2]], input_graph.ceil_uncert_traveltime[a[1], a[2]]) for a in input_graph.arcs if x_val[(a[1], a[2])] >= 1-eps]
         sol_sp1, val_sp1 = SP1(arcs, input_graph)
 
@@ -165,11 +168,18 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
         vertexes = [(i, input_graph.weights[i], input_graph.weights_uncert[i]) for i in 1:input_graph.n if y_val[i] >= 1-eps]
         sol_sp2, val_sp2 = SP2(vertexes, input_graph)
 
-        if !(abs(z_val - val_sp1) < eps && input_graph.S >= val_sp2) #solution non optimale
-            @constraint(model, z >= sum(a[3] * (1 + a[4]) * x[(a[1], a[2])] for a in sol_sp1))
-            @constraint(model, sum(y[v[1]] * (v[2] + v[3] * v[4]) for v in sol_sp2) <= input_graph.S)
-        else 
+        if !(CPU_time_limit - (time()-start) > eps)
             contin = false
+        end
+
+        if !(abs(z_val - val_sp1) < eps && input_graph.S >= val_sp2) #solution non optimale
+            if contin
+                @constraint(model, z >= sum(a[3] * (1 + a[4]) * x[(a[1], a[2])] for a in sol_sp1))
+                @constraint(model, sum(y[v[1]] * (v[2] + v[3] * v[4]) for v in sol_sp2) <= input_graph.S)
+            end
+        else 
+            contin = false #ca marche
+            optim = true
         end
     end
 
@@ -192,13 +202,15 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
         end
     end
 
+    println(solve_time(model), time() - start)
+
     push!(dict_row, "Nombre de variables" => numvar(model))
-    push!(dict_row, "Time (s)" => solve_time(model))
+    push!(dict_row, "Time (s)" => time() - start)#solve_time(model))
     push!(dict_row, "Time limit (s)" => CPU_time_limit)
-    push!(dict_row, "Nombre de noeuds" => node_count(model))
-    push!(dict_row, "termination status" => (termination_status(model) == MOI.OPTIMAL))
-    push!(dict_row, "has_value" => has_values(model))
-    push!(dict_row, "is_feasible" => (primal_status(model) == MOI.FEASIBLE_POINT))
+    #push!(dict_row, "Nombre de noeuds" => node_count(model))
+    push!(dict_row, "termination status" => optim)
+    #push!(dict_row, "has_value" => has_values(model))
+    #push!(dict_row, "is_feasible" => (primal_status(model) == MOI.FEASIBLE_POINT))
     push!(dict_row, "n_solves" => n_solve)
 
     if has_values(model)

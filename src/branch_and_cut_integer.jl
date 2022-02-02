@@ -151,7 +151,8 @@ function branch_and_cut_integer(input_graph, dict_row, verbose, CPU_time_limit)
             vertexes = [(i, input_graph.weights[i], input_graph.weights_uncert[i]) for i in 1:input_graph.n if y_val[i] >= 1-eps]
             sol_sp2, val_sp2 = SP2(vertexes, input_graph)
     
-            if !(abs(z_val - val_sp1) < eps && input_graph.S >= val_sp2) #solution non optimale
+            if z_val + eps <= val_sp1 || input_graph.S + eps <= val_sp2 #solution non optimale
+                println(z_val," ", val_sp1, " ", val_sp2, " ", input_graph.S) 
                 cstr1 = @build_constraint(z >= sum(a[3] * (1 + a[4]) * x[(a[1], a[2])] for a in sol_sp1))
                 MOI.submit(model, MOI.LazyConstraint(cb_data), cstr1)
     
@@ -159,6 +160,8 @@ function branch_and_cut_integer(input_graph, dict_row, verbose, CPU_time_limit)
                 MOI.submit(model, MOI.LazyConstraint(cb_data), cstr2)
 
                 n_added_cuts += 2
+            else
+                println("SOLUTION ADMISSIBLE TROUVEE ", z_val," ", val_sp1, " ", val_sp2, " ", input_graph.S)
             end
         end
     end
