@@ -1,6 +1,7 @@
 import numpy as np
 import json
 from pathlib import Path
+import csv
 
 
 def read_data(data_folder, file_name):
@@ -89,3 +90,22 @@ def save_results(obj, time, instance, method):
     with open(root_file, 'w+') as outfile:
         json.dump(summary, outfile, indent=4, sort_keys=True)
 
+
+def save_results_csv(obj, time, instance, nb_ants, t_max, improve_init):
+    summary = {
+        "Objective value": round(obj, 2),
+        "Time (s)": round(time, 2),
+        "path": instance,
+        "Number ants": nb_ants,
+        "Number iterations": t_max,
+        "Improve initial": improve_init
+    }
+
+    results_folder = f"../results/benchmark_heuristic.csv"
+    root = Path(results_folder)
+
+    with open(root, 'a', newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=summary.keys())
+
+        # writer.writeheader()
+        writer.writerow(summary)

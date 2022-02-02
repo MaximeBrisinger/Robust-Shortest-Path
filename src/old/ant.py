@@ -41,7 +41,7 @@ class Ant:
         # static_cost = sum([graph.get_d(i, j) for (i, j) in self.edges])
 
         md = Model()
-        delta_1 = md.continuous_var_dict(self.edges, lb=0, name="delta_2")
+        delta_1 = md.continuous_var_dict(self.edges, lb=0, name="delta_1")
         for (i, j) in self.edges:
             md.add_constraint(delta_1[i, j] <= graph.get_D(i, j), ctname="ub")
         md.add_constraint(md.sum(delta_1[i, j] for (i, j) in self.edges) <= graph.d1)
@@ -66,8 +66,11 @@ if __name__ == '__main__':
     s = time.time()
     print(graph.get_shortest_path(graph.s, graph.t))
     print(time.time() - s)
-    exit()
+
+    # short_path = [74, 21, 3, 4, 10, 44, 59, 105]
+    # short_path = [15, 4, 9, 2, 13, 20, 18]
     short_path = [15, 19, 1, 5, 17]
+
     ant = Ant(short_path)
     print(ant.get_worst_cost(graph))
 
