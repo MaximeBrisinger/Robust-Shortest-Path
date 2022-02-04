@@ -91,14 +91,15 @@ def save_results(obj, time, instance, method):
         json.dump(summary, outfile, indent=4, sort_keys=True)
 
 
-def save_results_csv(obj, time, instance, nb_ants, t_max, improve_init):
+def save_results_csv(obj, time, instance, nb_ants, t_max, improve_init, termination_status):
     summary = {
         "Objective value": round(obj, 2),
         "Time (s)": round(time, 2),
         "path": instance,
         "Number ants": nb_ants,
         "Number iterations": t_max,
-        "Improve initial": improve_init
+        "Improve initial": improve_init,
+        "Termination status": termination_status
     }
 
     results_folder = f"../results/benchmark_heuristic.csv"

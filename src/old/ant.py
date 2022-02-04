@@ -35,7 +35,7 @@ class Ant:
         maximum_augmentation = self.get_worst_augmentation(graph)
         maximum_weight = self.get_weight(graph)
 
-        return maximum_augmentation + maximum_weight < graph.S
+        return maximum_augmentation + maximum_weight < graph.S, (maximum_augmentation + maximum_weight - graph.S) / graph.S
 
     def get_worst_cost(self, graph: InputGraph):
         # static_cost = sum([graph.get_d(i, j) for (i, j) in self.edges])
@@ -58,19 +58,19 @@ class Ant:
 
 
 if __name__ == '__main__':
-
-    file = "20_USA-road-d.BAY.gr"
+    file = "100_USA-road-d.NY.gr"
     data_folder = "../data/"
 
-    graph = InputGraph(data_folder, file)
+    input_graph = InputGraph(data_folder, file)
     s = time.time()
-    print(graph.get_shortest_path(graph.s, graph.t))
+    print(input_graph.get_shortest_path(input_graph.s, input_graph.t))
     print(time.time() - s)
 
     # short_path = [74, 21, 3, 4, 10, 44, 59, 105]
     # short_path = [15, 4, 9, 2, 13, 20, 18]
-    short_path = [15, 19, 1, 5, 17]
+    short_path = [51, 61, 20, 28, 71, 62, 55, 96]
+    short_path = [51, 29, 4, 1, 2, 24, 55, 96]
 
     ant = Ant(short_path)
-    print(ant.get_worst_cost(graph))
-
+    print(ant.get_worst_cost(input_graph))
+    print(ant.is_admissible(input_graph))

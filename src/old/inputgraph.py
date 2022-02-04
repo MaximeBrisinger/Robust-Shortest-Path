@@ -25,10 +25,12 @@ class InputGraph:
 
     def init_nx_graph(self):
         graph = nx.DiGraph()
-        graph.add_nodes_from(self.nodes)
+        for u in self.nodes:
+            worst_weight = self.get_p(u) + 2 * self.get_ph(u)
+            graph.add_node(u, weight=worst_weight)
         for (i, j) in self.edges:
-            worst_weight = self.get_d(i, j) * (1 + self.get_D(i, j))
-            graph.add_edge(i, j, weight=worst_weight)
+            worst_cost = self.get_d(i, j) * (1 + self.get_D(i, j))
+            graph.add_edge(i, j, weight=worst_cost)
         return graph
 
     def get_shortest_path(self, s, t):

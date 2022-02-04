@@ -7,6 +7,8 @@ def main(args):
     getattr(src.old.with_dual, args.method)(args.input, args.time_limit)
 
 
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
