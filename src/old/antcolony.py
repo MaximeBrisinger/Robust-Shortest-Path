@@ -8,13 +8,13 @@ import networkx as nx
 
 
 class AntColony:
-    def __init__(self, input_folder, input_file, nb_ants=None, t_max=5, time_limit=10):
+    def __init__(self, input_folder, input_file, nb_ants, t_max=5, time_limit=10):
         self.input_file = input_file
         self.t_max = t_max
         self.time_limit = time_limit
         self.graph = InputGraph(input_folder, input_file)
 
-        self.m = nb_ants if nb_ants is not None else self.graph.n  # number of ants
+        self.m = min(nb_ants, self.graph.n)  # number of ants
         self.alpha = 1  # param for probability (pheromones weight)
         self.beta = 0.8  # param for probability (distance weight)
         self.Q = 1000 / self.m  # param for pheromones
@@ -129,6 +129,7 @@ class AntColony:
         best_path_all, best_cost_all = self.select_best_ant()
         # best_path_all, best_cost_all = 100000, 100000
         init_cost, init_path = best_cost_all, best_path_all
+        time_for_best_value = round(time.time() - start_time, 2)
 
         self.count_finished()
         self.count_admissible()
@@ -172,43 +173,48 @@ class AntColony:
             best_path_t, best_cost_t = self.select_best_ant()
             if best_cost_t < best_cost_all:
                 best_path_all, best_cost_all = best_path_t, best_cost_t
+                time_for_best_value = round(time.time() - start_time, 2)
 
             self.count_finished()
             self.count_admissible()
 
         print(f"Nb different admissible path : {len(admissibles)}")
         # print(np.array(admissibles))
-        return best_path_all, best_cost_all, init_path, init_cost
+        total_time = round(time.time() - start_time, 2)
+        return best_path_all, best_cost_all, init_path, init_cost, total_time, time_for_best_value
 
 
 if __name__ == '__main__':
-    file = "140_USA-road-d.NY.gr"
-    # 12218
+    file = "100_USA-road-d.NY.gr"
+
     data_folder = "../data/"
+    # 12218
 
     # "100_USA-road-d.COL.gr" : 1 / 0.8 / 1000 / 0.3 / 30/len / 40ants / 20tmax / c + 400* / no init
     # .........NY : nul
     # 12/....NY : ok
 
-    start = time.time()
     ac = AntColony(input_folder=data_folder,
                    input_file=file,
-                   nb_ants=40,
+                   nb_ants=30,
                    t_max=15,
                    time_limit=60)
 
-    path, cost, initial_path, initial_cost = ac.main()
-    total_time = round(time.time() - start, 2)
+    path, cost, initial_path, initial_cost, total_time, time_for_best_value = ac.main()
 
     print(f"\nBest cost is {cost}, with path {path}")
     print(f"\nInitial best cost was {initial_cost}, with path {initial_path}")
     print(f"\nExecution time : {total_time}s")
+    print(f"\nTime to reach best value : {time_for_best_value}s")
 
     save_results_csv(obj=cost,
                      time=total_time,
+                     time_best=time_for_best_value,
                      instance=file,
                      nb_ants=ac.m,
                      t_max=ac.t_max,
                      improve_init=bool(cost < initial_cost),
                      termination_status=(not ac.interrupted)
                      )
+
+# todo : au lieu de laisser les cycle et les virer, direct mettre proba à 0 dans le choix du next node
