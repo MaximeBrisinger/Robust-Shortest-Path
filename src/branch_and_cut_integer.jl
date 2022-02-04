@@ -205,10 +205,11 @@ function branch_and_cut_integer(input_graph, dict_row, verbose, CPU_time_limit)
         println("SOLUTION :")
         println("VALEUR ", objective_value(model))
         x_val = value.(x)
+        y_val = value.(y)
         eps = 10^(-5)
         for a in input_graph.arcs
-            if x_val[a] > 1-eps
-                println(a[1], "->", a[2], " ", input_graph.traveltime_matrix[a[1], a[2]], " ", input_graph.ceil_uncert_traveltime[a[1], a[2]])
+            if x_val[a] > eps
+                println(a[1], "->", a[2], " ", input_graph.traveltime_matrix[a[1], a[2]], " ", input_graph.ceil_uncert_traveltime[a[1], a[2]], " ", x_val)
             end
         end
         println()

@@ -115,7 +115,7 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
     # MODEL DEFINITION 
     model = Model(CPLEX.Optimizer)
 
-    @variable(model, x[a=[(arc[1], arc[2]) for arc in input_graph.arcs]], binary=true)
+    @variable(model, x[a=[(arc[1], arc[2]) for arc in input_graph.arcs]], lower_bound=0, upper_bound=1)# binary=true)
     @variable(model, y[1:input_graph.n], binary=true)
     @variable(model, z, lower_bound=0)
 
@@ -188,10 +188,11 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
         println("SOLUTION :")
         println("VALEUR ", objective_value(model))
         x_val = value.(x)
+        y_val = value.(y)
         eps = 10^(-5)
         for a in input_graph.arcs
-            if x_val[a] > 1-eps
-                println(a[1], "->", a[2], " ", input_graph.traveltime_matrix[a[1], a[2]], " ", input_graph.ceil_uncert_traveltime[a[1], a[2]])
+            if x_val[a] > eps
+                println(a[1], "->", a[2], " ", input_graph.traveltime_matrix[a[1], a[2]], " ", input_graph.ceil_uncert_traveltime[a[1], a[2]], " ", x_val[a])
             end
         end
         println()
@@ -202,7 +203,7 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
         end
     end
 
-    println(solve_time(model), time() - start)
+    println(solve_time(model), " ", time() - start)
 
     push!(dict_row, "Nombre de variables" => numvar(model))
     push!(dict_row, "Time (s)" => time() - start)#solve_time(model))
