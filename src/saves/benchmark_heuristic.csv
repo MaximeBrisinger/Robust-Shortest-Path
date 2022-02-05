@@ -74,4 +74,3 @@ Objective value,Time (s),Time to best value (s),path,Number ants,Number iteratio
 54240.21,91.31,1.85,950_USA-road-d.BAY.gr,30,13,False,False
 29672.76,107.01,1.87,950_USA-road-d.COL.gr,30,13,False,False
 43329.05,61.91,1.26,950_USA-road-d.NY.gr,30,13,False,False
-43329.05,66.79,1.42,700_USA-road-d.NY.gr,30,15,False,False

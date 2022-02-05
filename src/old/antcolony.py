@@ -185,7 +185,7 @@ class AntColony:
 
 
 if __name__ == '__main__':
-    file = "100_USA-road-d.NY.gr"
+    file = "700_USA-road-d.NY.gr"
 
     data_folder = "../data/"
     # 12218
