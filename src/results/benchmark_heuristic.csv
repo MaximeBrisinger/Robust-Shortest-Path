@@ -63,3 +63,4 @@ Objective value,Time (s),path,Number ants,Number iterations,Improve initial,Term
 35802.77,61.44,300_USA-road-d.NY.gr,40,15,False,False
 35802.77,61.3,300_USA-road-d.NY.gr,40,15,False,False
 33079.16,25.52,140_USA-road-d.NY.gr,40,15,False,True
+47814.36,76.42,600_USA-road-d.NY.gr,30,15,False,False

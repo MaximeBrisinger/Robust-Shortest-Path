@@ -1,6 +1,6 @@
 from docplex.mp.model import Model
 import time
-from src.old.utils import read_data, solve_and_display, previous_nodes, next_nodes, save_results
+from src.heuristic.utils import read_data, solve_and_display, previous_nodes, next_nodes, save_results
 
 # import os
 

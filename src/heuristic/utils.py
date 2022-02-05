@@ -91,10 +91,11 @@ def save_results(obj, time, instance, method):
         json.dump(summary, outfile, indent=4, sort_keys=True)
 
 
-def save_results_csv(obj, time, instance, nb_ants, t_max, improve_init, termination_status):
+def save_results_csv(obj, time, time_best, instance, nb_ants, t_max, improve_init, termination_status):
     summary = {
         "Objective value": round(obj, 2),
         "Time (s)": round(time, 2),
+        "Time to best value (s)": round(time_best, 2),
         "path": instance,
         "Number ants": nb_ants,
         "Number iterations": t_max,
@@ -102,8 +103,11 @@ def save_results_csv(obj, time, instance, nb_ants, t_max, improve_init, terminat
         "Termination status": termination_status
     }
 
-    results_folder = f"../results/benchmark_heuristic.csv"
+    results_folder = f"../results/benchmark_heuristic_2.csv"
     root = Path(results_folder)
+    if not root.exists():
+        results_folder = f"src/results/benchmark_heuristic_2.csv"
+        root = Path(results_folder)
 
     with open(root, 'a', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=summary.keys())
