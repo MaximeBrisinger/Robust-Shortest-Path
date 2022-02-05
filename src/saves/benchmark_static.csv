@@ -1,0 +1,5 @@
+Gap,Nombre de noeuds,Nombre de variables,Objective value,Time (s),Time limit (s),has_value,is_feasible,objective bound,path,termination status
+0.0,0,140,6848.0,0.005282878875732422,100.0,true,true,6848.0,data/20_USA-road-d.NY.gr,true
+0.0,0,430,12410.0,0.016585826873779297,100.0,true,true,12410.0,data/40_USA-road-d.NY.gr,true
+0.0,0,722,12244.0,0.018229007720947266,100.0,true,true,12244.0,data/60_USA-road-d.NY.gr,true
+0.0,0,1114,12244.0,0.03695392608642578,100.0,true,true,12244.0,data/80_USA-road-d.NY.gr,true
