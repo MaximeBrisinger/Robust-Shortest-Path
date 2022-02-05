@@ -1,4 +1,4 @@
-from src.old.inputgraph import InputGraph
+from src.heuristic.inputgraph import InputGraph
 from docplex.mp.model import Model
 import time
 

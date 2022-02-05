@@ -1,6 +1,6 @@
-from src.old.inputgraph import InputGraph
-from src.old.ant import Ant
-from src.old.utils import save_results_csv
+from src.heuristic.inputgraph import InputGraph
+from src.heuristic.ant import Ant
+from src.heuristic.utils import save_results_csv
 import random
 import time
 import numpy as np

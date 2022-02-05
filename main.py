@@ -1,6 +1,6 @@
 import argparse
-from src.old.utils import save_results_csv
-from src.old.antcolony import AntColony
+from src.heuristic.utils import save_results_csv
+from src.heuristic.antcolony import AntColony
 
 
 def main(args):

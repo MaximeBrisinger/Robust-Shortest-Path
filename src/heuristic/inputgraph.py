@@ -1,4 +1,4 @@
-from src.old.utils import read_data, previous_nodes, next_nodes
+from src.heuristic.utils import read_data, previous_nodes, next_nodes
 import networkx as nx
 
 
