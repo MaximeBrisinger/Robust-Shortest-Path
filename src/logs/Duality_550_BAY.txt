@@ -1,0 +1,113 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Parallel mode: deterministic, using up to 8 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting Barrier on 6 threads...
+ * Starting primal Simplex on 1 thread...
+Tried aggregator 1 time.
+LP Presolve eliminated 9 rows and 14 columns.
+Reduced LP has 30458 rows, 58716 columns, and 176146 nonzeros.
+Presolve time = 0.10 sec. (54.34 ticks)
+Symmetry aggregator did 87640 additional substitutions.
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          2318.000000
+Iteration:    73   Dual objective     =         12128.830000
+
+Dual crossover.
+  Dual:  Fixing 231 variables.
+      230 DMoves:  Infeasibility  5.86908300e-11  Objective  1.90968110e+04
+        0 DMoves:  Infeasibility  1.04478204e-10  Objective  1.90968110e+04
+  Dual:  Pushed 0, exchanged 231.
+  Primal:  Fixing 2304 variables.
+     2303 PMoves:  Infeasibility  0.00000000e+00  Objective  1.90968110e+04
+        0 PMoves:  Infeasibility  1.08160009e-15  Objective  1.90968110e+04
+  Primal:  Pushed 1880, exchanged 424.
+
+Dual simplex solved model.
+
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Warning:  Non-integral bounds for integer variables rounded.
+Warning:  Non-integral bounds for integer variables rounded.
+Probing time = 0.41 sec. (26.31 ticks)
+Cover probing fixed 0 vars, tightened 1102 bounds.
+Clique table members: 1324.
+Warning:  Non-integral bounds for integer variables rounded.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.08 sec. (51.60 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    19096.8110   222                  19096.8110        0         
+*     0+    0                        22317.2400    19096.8110            14.43%
+      0     0    19096.8110   179    22317.2400      Fract: 1       36   13.15%
+      0     0    19097.5250   185    22317.2400      Cuts: 58      206   13.15%
+      0     0    19097.5250   162    22317.2400      Cuts: 46      256   13.15%
+      0     0    19130.4509   118    22317.2400      Cuts: 61      319   13.15%
+      0     0    19130.4509   124    22317.2400      Cuts: 45      342   13.15%
+Detecting symmetries...
+      0     2    19130.4509   115    22317.2400    19382.4300      342   13.15%
+Elapsed time = 11.69 sec. (7086.05 ticks, tree = 0.02 MB, solutions = 1)
+      2     3    19280.0191   115    22317.2400    19382.4300      372   13.15%
+      6     5    19549.5171    79    22317.2400    19382.4300      450   13.15%
+     12     8    19754.2103   105    22317.2400    19454.5300      756   12.83%
+     28    20    20928.0800    40    22317.2400    19549.5171     1167   12.40%
+     38    28    19914.1112   106    22317.2400    19549.5171     2110   12.40%
+     44    22    21479.2300    18    22317.2400    19549.5171     1566   12.40%
+     48    40    20928.0800    31    22317.2400    19549.5171     3284   12.40%
+     53    40    21703.0554    61    22317.2400    19549.5171     3568   12.40%
+     57    41    20965.4006    31    22317.2400    19549.5171     3980   12.40%
+     76     7    21381.3225   308    22317.2400    19629.3200     2534   12.04%
+Elapsed time = 22.12 sec. (11155.96 ticks, tree = 0.02 MB, solutions = 1)
+     85    59    21788.6200   303    22317.2400    19868.3743    16638   10.97%
+    110    72    21832.3100   226    22317.2400    19868.3743    20793   10.97%
+    148    86    22276.5300    51    22317.2400    19868.3743    22902   10.97%
+    168   114    21337.4006    40    22317.2400    20192.7815    35990    9.52%
+    218   122    22036.2300   104    22317.2400    20192.7815    37663    9.52%
+    278   155    21442.4286   243    22317.2400    21176.0800    46958    5.11%
+    365   189    22301.0400     6    22317.2400    21316.8600    50503    4.48%
+    423   236    22173.8150    16    22317.2400    21361.7700    61315    4.28%
+    520   233    21409.8700   284    22317.2400    21361.7700    59393    4.28%
+    621   364    21419.0625   289    22317.2400    21393.7140    90141    4.14%
+Elapsed time = 47.79 sec. (20863.86 ticks, tree = 5.64 MB, solutions = 1)
+    726   377    21930.9738   198    22317.2400    21393.7140    91904    4.14%
+    832   421    21962.5554   141    22317.2400    21409.8700    96967    4.07%
+    951   579    21797.8125   271    22317.2400    21439.2567   116845    3.93%
+   1104   630    22058.7050    24    22317.2400    21439.2567   122604    3.93%
+   1271   760    21897.8450    37    22317.2400    21478.8281   145329    3.76%
+   1463   861    21901.5229    71    22317.2400    21509.2200   166053    3.62%
+   1618   876    infeasible          22317.2400    21509.2200   168500    3.62%
+   1864   971    21950.1681   114    22317.2400    21657.7300   194597    2.96%
+   2056  1121    22272.8000     6    22317.2400    21733.7700   222157    2.61%
+   2191  1162    21832.7738   165    22317.2400    21760.0725   236917    2.50%
+Elapsed time = 73.71 sec. (30544.40 ticks, tree = 21.69 MB, solutions = 1)
+   2334  1279    22058.7050    23    22317.2400    21809.1500   262642    2.28%
+   2614  1294    22301.0400     6    22317.2400    21809.1500   265924    2.28%
+   2862  1413    22246.4700    19    22317.2400    21840.3700   291378    2.14%
+   3147  1580    22246.4700    22    22317.2400    21860.3700   318480    2.05%
+   3486  1699        cutoff          22317.2400    21895.1300   335754    1.89%
+   3847  1881    22246.4700    18    22317.2400    21902.5567   357251    1.86%
+Starting limited solution polishing.
+   4180  2101    21967.4976   121    22317.2400    21913.7900   380669    1.81%
+   4380  2166        cutoff          22317.2400    21928.7100   385469    1.74%
+   4593  2390    22246.4700    24    22317.2400    21937.4700   405064    1.70%
+   4924  2464        cutoff          22317.2400    21947.6700   411247    1.66%
+Elapsed time = 99.36 sec. (40113.55 ticks, tree = 49.92 MB, solutions = 1)
+
+Flow cuts applied:  1
+Mixed integer rounding cuts applied:  2
+Gomory fractional cuts applied:  6
+
+Root node processing (before b&c):
+  Real time             =   11.61 sec. (7052.75 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   88.44 sec. (33534.59 ticks)
+  Sync time (average)   =   12.59 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  100.05 sec. (40587.34 ticks)

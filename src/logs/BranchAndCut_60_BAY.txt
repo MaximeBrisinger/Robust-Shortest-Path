@@ -1,0 +1,65 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_Threads                                 1
+CPXPARAM_TimeLimit                               100
+Generic callback                                 0xfe
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 14 columns.
+MIP Presolve modified 12 coefficients.
+Reduced MIP has 118 rows, 989 columns, and 2839 nonzeros.
+Reduced MIP has 988 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.02 ticks)
+Probing time = 0.00 sec. (1.82 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 118 rows, 989 columns, and 2839 nonzeros.
+Reduced MIP has 988 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.97 ticks)
+Probing time = 0.00 sec. (1.82 ticks)
+Clique table members: 987.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (0.42 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0     8230.0700    10                      0.0000        1         
+*     0+    0                        10633.3300     8230.0700            22.60%
+
+Repeating presolve.
+Tried aggregator 2 times.
+MIP Presolve eliminated 84 rows and 902 columns.
+Aggregator did 14 substitutions.
+Reduced MIP has 20 rows, 73 columns, and 192 nonzeros.
+Reduced MIP has 72 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.50 ticks)
+Probing time = 0.00 sec. (0.39 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 20 rows, 73 columns, and 192 nonzeros.
+Reduced MIP has 72 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.11 ticks)
+Represolve time = 0.00 sec. (1.31 ticks)
+Probing time = 0.00 sec. (0.36 ticks)
+Clique table members: 190.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (0.25 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                        10633.3300     8377.9400            21.21%
+      0     0     8456.5160    10    10633.3300     8456.5160       69   20.47%
+      0     2     8672.9218    21    10633.3300     8672.9218       72   18.44%
+Elapsed time = 1.39 sec. (38.00 ticks, tree = 0.01 MB, solutions = 1)
+
+User cuts applied:  73
+
+Root node processing (before b&c):
+  Real time             =    1.39 sec. (38.02 ticks)
+Sequential b&c:
+  Real time             =    0.15 sec. (18.51 ticks)
+                          ------------
+Total (root+branch&cut) =    1.54 sec. (56.53 ticks)
+SOLUTION ADMISSIBLE TROUVEE 10633.330000000002 10633.33 83.0 85.0

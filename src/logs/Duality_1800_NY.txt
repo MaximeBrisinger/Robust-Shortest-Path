@@ -1,0 +1,81 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Parallel mode: deterministic, using up to 8 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting Barrier on 6 threads...
+ * Starting primal Simplex on 1 thread...
+Tried aggregator 1 time.
+LP Presolve eliminated 102 rows and 109 columns.
+Reduced LP has 129667 rows, 252225 columns, and 756582 nonzeros.
+Presolve time = 0.56 sec. (269.97 ticks)
+Symmetry aggregator did 315271 additional substitutions.
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          3304.000000
+Iteration:   302   Dual objective     =         21504.711813
+Iteration:   619   Dual objective     =         29480.711813
+Iteration:   903   Dual objective     =         34051.918142
+Iteration:  1177   Dual objective     =         36845.134675
+Perturbation started.
+Iteration:  1212   Dual objective     =         36845.134675
+Iteration:  1403   Dual objective     =         36845.134681
+Iteration:  1594   Dual objective     =         36845.134691
+Iteration:  1816   Dual objective     =         36845.134708
+Iteration:  2096   Dual objective     =         36845.134751
+Iteration:  2400   Dual objective     =         36845.135150
+Iteration:  2645   Dual objective     =         37891.027661
+Iteration:  2898   Dual objective     =         44255.665911
+Iteration:  3154   Dual objective     =         52913.764334
+Iteration:  3489   Dual objective     =         57795.217134
+Iteration:  3694   Dual objective     =         59245.813442
+Removing perturbation.
+
+Dual crossover.
+  Dual:  Fixing 2109 variables.
+     2108 DMoves:  Infeasibility  8.00901034e-09  Objective  5.96339755e+04
+        0 DMoves:  Infeasibility  1.52763278e-08  Objective  5.96339755e+04
+  Dual:  Pushed 55, exchanged 2054.
+  Primal:  Fixing 92 variables.
+       91 PMoves:  Infeasibility  1.11022302e-16  Objective  5.96339755e+04
+        0 PMoves:  Infeasibility  3.79037080e-16  Objective  5.96339755e+04
+  Primal:  Pushed 58, exchanged 34.
+
+Barrier solved model.
+
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Warning:  Non-integral bounds for integer variables rounded.
+Warning:  Non-integral bounds for integer variables rounded.
+Probing time = 0.96 sec. (99.56 ticks)
+Cover probing fixed 0 vars, tightened 3602 bounds.
+Clique table members: 2919.
+Warning:  Non-integral bounds for integer variables rounded.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 17.13 sec. (3481.31 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    59633.9755   156                  59633.9755        0         
+*     0+    0                        69779.4700    59633.9755            14.54%
+      0     0    59955.3028   170    69779.4700      Cuts: 74       34    9.51%
+      0     0    62360.9214   172    69779.4700      Cuts: 80      192    7.40%
+      0     0    62360.9214   175    69779.4700      Cuts: 66      208    7.40%
+*     0+    0                        69274.2300    64615.2545             6.73%
+*     0+    0                        69098.2500    64615.2545             6.49%
+Detecting symmetries...
+
+Flow cuts applied:  5
+Mixed integer rounding cuts applied:  17
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =  100.03 sec. (45701.18 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  100.03 sec. (45701.18 ticks)

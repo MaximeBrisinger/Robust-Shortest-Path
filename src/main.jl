@@ -1,13 +1,15 @@
 
 include("branch_and_cut_integer.jl")
-include("cutting_planes2.jl")
+include("cutting_planes_float.jl")
+include("cutting_planes_int.jl")
 include("duality.jl")
+include("static.jl")
 include("data.jl")
 
 
 using ArgParse, CSV, DataFrames
 
-using .BranchAndCut, .CuttingPlanes, .Duality, .dataUtils
+using .BranchAndCutInt, .CuttingPlanesFloat, .CuttingPlanesInt, .Duality, .dataUtils, .Static
 
 function main(mode, verbose, path_to_data, CPU_time_limit)
     input_graph = dataUtils.readData(path_to_data)
@@ -28,7 +30,7 @@ function main(mode, verbose, path_to_data, CPU_time_limit)
     elseif mode == "BranchAndCut"
         dict_row = Dict{String, Any}()
         dict_row["path"] = path_to_data
-        dict_row = BranchAndCut.branch_and_cut_integer(input_graph, dict_row, verbose, CPU_time_limit)
+        dict_row = BranchAndCutInt.branch_and_cut_integer(input_graph, dict_row, verbose, CPU_time_limit)
 
         if isfile("saves/benchmark_BC.csv")
             df = DataFrame(CSV.File("saves/benchmark_BC.csv"))
@@ -37,23 +39,52 @@ function main(mode, verbose, path_to_data, CPU_time_limit)
         else
             df = DataFrame(dict_row)
         end
-    
         CSV.write("saves/benchmark_BC.csv", df)
 
-    elseif mode == "CuttingPlanes"
+    elseif mode == "CuttingPlanesFloat"
         dict_row = Dict{String, Any}()
         dict_row["path"] = path_to_data
-        dict_row = CuttingPlanes.cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
+        dict_row = CuttingPlanesFloat.cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
 
-        if isfile("saves/benchmark_CP.csv")
-            df = DataFrame(CSV.File("saves/benchmark_CP.csv"))
+        if isfile("saves/benchmark_CP_float.csv")
+            df = DataFrame(CSV.File("saves/benchmark_CP_float.csv"))
             allowmissing!(df)
             append!(df, DataFrame(dict_row))
         else
             df = DataFrame(dict_row)
         end
 
-        CSV.write("saves/benchmark_CP.csv", df)
+        CSV.write("saves/benchmark_CP_float.csv", df)
+
+    elseif mode == "CuttingPlanesInt"
+        dict_row = Dict{String, Any}()
+        dict_row["path"] = path_to_data
+        dict_row = CuttingPlanesInt.cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
+
+        if isfile("saves/benchmark_CP_int.csv")
+            df = DataFrame(CSV.File("saves/benchmark_CP_int.csv"))
+            allowmissing!(df)
+            append!(df, DataFrame(dict_row))
+        else
+            df = DataFrame(dict_row)
+        end
+
+        CSV.write("saves/benchmark_CP_int.csv", df)
+
+    elseif mode == "Static"
+        dict_row = Dict{String, Any}()
+        dict_row["path"] = path_to_data
+        dict_row = Static.solve_static(input_graph, dict_row, verbose, CPU_time_limit)
+
+        if isfile("saves/benchmark_static.csv")
+            df = DataFrame(CSV.File("saves/benchmark_static.csv"))
+            allowmissing!(df)
+            append!(df, DataFrame(dict_row))
+        else
+            df = DataFrame(dict_row)
+        end
+
+        CSV.write("saves/benchmark_static.csv", df)
     end
 end
 

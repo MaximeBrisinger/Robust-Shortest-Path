@@ -1,0 +1,42 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_Threads                                 1
+CPXPARAM_TimeLimit                               100
+Generic callback                                 0xfe
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 9 columns.
+MIP Presolve modified 7 coefficients.
+Reduced MIP has 78 rows, 514 columns, and 1459 nonzeros.
+Reduced MIP has 513 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.59 ticks)
+Probing time = 0.00 sec. (0.75 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 78 rows, 514 columns, and 1459 nonzeros.
+Reduced MIP has 513 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.56 ticks)
+Probing time = 0.00 sec. (0.75 ticks)
+Clique table members: 512.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (0.23 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0     8779.2917    14                      0.0000        1         
+*     0+    0                        12664.3300     8779.2917            30.68%
+      0     0     9004.9324    24    12664.3300       Cuts: 2        2   28.90%
+      0     0     9088.5236    21    12664.3300      Fract: 1        4   28.24%
+      0     2     9089.2999    35    12664.3300     9194.8416        4   27.40%
+Elapsed time = 1.33 sec. (28.08 ticks, tree = 0.01 MB, solutions = 1)
+
+Gomory fractional cuts applied:  2
+User cuts applied:  62
+
+Root node processing (before b&c):
+  Real time             =    1.33 sec. (28.16 ticks)
+Sequential b&c:
+  Real time             =    0.10 sec. (93.29 ticks)
+                          ------------
+Total (root+branch&cut) =    1.43 sec. (121.44 ticks)
+SOLUTION ADMISSIBLE TROUVEE 12664.33 12664.33 64.0 66.0

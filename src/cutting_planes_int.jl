@@ -1,6 +1,6 @@
 # include("data.jl")
 
-module CuttingPlanes
+module CuttingPlanesInt
 
 export cutting_planes
 
@@ -19,7 +19,7 @@ function SP1(arcs, input_graph)
     arcs : list of tuples representing arcs ij with x_ij=1 in the current solution
     input_graph : instance of InputGraph
     """
-    sort!(arcs, by= a->a[3], rev=true)
+    sort!(arcs, by= a->a[3] , rev=true)
 
     i=1
     quantity=0
@@ -110,12 +110,12 @@ end
 
 function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
     U1 = []
-    U2 = []
+    U2 = [input_graph.weights]
     
     # MODEL DEFINITION 
     model = Model(CPLEX.Optimizer)
 
-    @variable(model, x[a=[(arc[1], arc[2]) for arc in input_graph.arcs]], lower_bound=0, upper_bound=1)# binary=true)
+    @variable(model, x[a=[(arc[1], arc[2]) for arc in input_graph.arcs]], binary=true)
     @variable(model, y[1:input_graph.n], binary=true)
     @variable(model, z, lower_bound=0)
 
@@ -151,6 +151,7 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
     start = time()
     eps = 10 ^ (-5)
     n_solve = 0
+    set_optimizer_attribute(model, "CPX_PARAM_SCRIND", 0)
     while contin
         set_time_limit_sec(model, CPU_time_limit - (time()-start))
         optimize!(model)
@@ -161,7 +162,7 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
 
 
                
-        arcs = [(a[1], a[2], input_graph.traveltime_matrix[a[1], a[2]], input_graph.ceil_uncert_traveltime[a[1], a[2]]) for a in input_graph.arcs if x_val[(a[1], a[2])] >= 1-eps]
+        arcs = [(a[1], a[2], input_graph.traveltime_matrix[a[1], a[2]], input_graph.ceil_uncert_traveltime[a[1], a[2]]) for a in input_graph.arcs if x_val[(a[1], a[2])] >= eps] #TOD0: transformer en 1-eps
         sol_sp1, val_sp1 = SP1(arcs, input_graph)
 
         # SP2
@@ -174,8 +175,8 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
 
         if !(abs(z_val - val_sp1) < eps && input_graph.S >= val_sp2) #solution non optimale
             if contin
-                @constraint(model, z >= sum(a[3] * (1 + a[4]) * x[(a[1], a[2])] for a in sol_sp1))
-                @constraint(model, sum(y[v[1]] * (v[2] + v[3] * v[4]) for v in sol_sp2) <= input_graph.S)
+                @constraint(model, z >= sum(a[3] * a[4] * x[(a[1], a[2])] for a in sol_sp1) + sum(x[(a[1], a[2])] * input_graph.traveltime_matrix[a[1], a[2]] for a in input_graph.arcs))
+                @constraint(model, sum(y[v[1]] * input_graph.weights[v] for v in 1:input_graph.n) + sum(y[v[1]] * v[3] * v[4] for v in sol_sp2) <= input_graph.S)
             end
         else 
             contin = false #ca marche
@@ -186,9 +187,11 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
 
     if verbose
         println("SOLUTION :")
+        println("OPTIMALE ? ", optim)
         println("VALEUR ", objective_value(model))
         x_val = value.(x)
         y_val = value.(y)
+        out_flow_val = value.(outflow)
         eps = 10^(-5)
         for a in input_graph.arcs
             if x_val[a] > eps
@@ -196,14 +199,29 @@ function cutting_planes(input_graph, dict_row, verbose, CPU_time_limit)
             end
         end
         println()
+        println("Y")
         for i in 1:input_graph.n
             if y_val[i] > 1-eps
                 println(i, " ", input_graph.weights[i], " ", input_graph.weights_uncert[i])
             end
         end
+        println()
+        println("INFLOW")
+        for i in 1:input_graph.n
+            println(i, " ", out_flow_val[i])
+        end
+        println()
+        println("OUTFLOW")
+        for i in 1:input_graph.n
+            println(i, " ", out_flow_val[i])
+        end
+
+        println()
+        vertexes = [(i, input_graph.weights[i], input_graph.weights_uncert[i]) for i in 1:input_graph.n if y_val[i] >= 1-eps]
+        sol_sp2, val_sp2 = SP2(vertexes, input_graph)
+        println("POIDS ", sum(y_val[i] * input_graph.weights[i] for i in 1:input_graph.n), " ", val_sp2, " ", input_graph.S)
     end
 
-    println(solve_time(model), " ", time() - start)
 
     push!(dict_row, "Nombre de variables" => numvar(model))
     push!(dict_row, "Time (s)" => time() - start)#solve_time(model))

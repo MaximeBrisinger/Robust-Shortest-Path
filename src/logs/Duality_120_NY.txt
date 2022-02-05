@@ -1,0 +1,81 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Parallel mode: deterministic, using up to 8 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting Barrier on 6 threads...
+ * Starting primal Simplex on 1 thread...
+Tried aggregator 1 time.
+LP Presolve eliminated 6 rows and 8 columns.
+Aggregator did 4 substitutions.
+Reduced LP has 2337 rows, 4198 columns, and 12589 nonzeros.
+Presolve time = 0.01 sec. (4.37 ticks)
+Symmetry aggregator did 5866 additional substitutions.
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          2140.000000
+Iteration:    62   Dual objective     =         15495.410000
+Iteration:   124   Dual objective     =         19744.536116
+
+Dual crossover.
+  Dual:  Fixing 90 variables.
+       89 DMoves:  Infeasibility  2.25895747e-10  Objective  2.00323083e+04
+        0 DMoves:  Infeasibility  1.19257493e-10  Objective  2.00323083e+04
+  Dual:  Pushed 0, exchanged 90.
+  Primal:  Fixing 233 variables.
+      232 PMoves:  Infeasibility  1.70002901e-16  Objective  2.00323083e+04
+        0 PMoves:  Infeasibility  1.87295925e-16  Objective  2.00323083e+04
+  Primal:  Pushed 126, exchanged 107.
+
+Dual simplex solved model.
+
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Warning:  Non-integral bounds for integer variables rounded.
+Warning:  Non-integral bounds for integer variables rounded.
+Probing fixed 0 vars, tightened 121 bounds.
+Probing time = 0.06 sec. (13.67 ticks)
+Cover probing fixed 0 vars, tightened 121 bounds.
+Clique table members: 2239.
+Warning:  Non-integral bounds for integer variables rounded.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.01 sec. (3.18 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    20032.3083   119                  20032.3083        0         
+*     0+    0                        31592.0400    20032.3083            36.59%
+      0     0    20160.3070   151    31592.0400      Cuts: 39      136   36.19%
+      0     0    20177.1065   159    31592.0400      Cuts: 89      263   36.13%
+      0     0    20213.7413   158    31592.0400      Cuts: 88      310   36.02%
+      0     0    20232.9542   135    31592.0400      Cuts: 97      339   35.96%
+      0     0    20262.9330   132    31592.0400     Cuts: 140      360   35.86%
+      0     0    20286.6637   123    31592.0400     Cuts: 125      374   35.69%
+      0     0    20326.7808   121    31592.0400     Cuts: 145      426   35.66%
+      0     0    20326.7808   121    31592.0400     Cuts: 128      430   35.66%
+      0     0    20326.7808   111    31592.0400     Cuts: 159      432   35.66%
+      0     0    20326.7808   115    31592.0400     Cuts: 229      438   35.66%
+Detecting symmetries...
+      0     2    20326.7808   115    31592.0400    20326.7808      438   35.66%
+Elapsed time = 0.89 sec. (494.30 ticks, tree = 0.02 MB, solutions = 1)
+*    12+    3                        31444.7700    20434.0169            35.02%
+     28    13    22355.9752    55    31444.7700    20860.1608      860   33.66%
+*   212+   39                        30613.0800    22050.0464            27.97%
+    292    11    24824.6814    40    30613.0800    23485.2481     8126   23.28%
+
+Flow cuts applied:  280
+Mixed integer rounding cuts applied:  278
+Lift and project cuts applied:  6
+Gomory fractional cuts applied:  4
+
+Root node processing (before b&c):
+  Real time             =    0.88 sec. (492.79 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.89 sec. (591.26 ticks)
+  Sync time (average)   =    0.29 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    1.77 sec. (1084.05 ticks)

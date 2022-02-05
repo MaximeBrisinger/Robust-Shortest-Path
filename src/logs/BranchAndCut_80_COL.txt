@@ -1,0 +1,48 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_Threads                                 1
+CPXPARAM_TimeLimit                               100
+Generic callback                                 0xfe
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 10 columns.
+MIP Presolve modified 8 coefficients.
+Reduced MIP has 158 rows, 1153 columns, and 3296 nonzeros.
+Reduced MIP has 1152 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.16 ticks)
+Probing time = 0.00 sec. (1.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 158 rows, 1153 columns, and 3296 nonzeros.
+Reduced MIP has 1152 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.13 ticks)
+Probing time = 0.00 sec. (1.94 ticks)
+Clique table members: 1150.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (0.52 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    11260.8433    12                      0.0000        2         
+      0     0    11445.2650     6                    Fract: 1        4         
+      0     0    11445.2650    14                    Fract: 1        5         
+      0     0    11445.2650    16               UserPurge1: 1        5         
+*     0+    0                        30033.4800    11445.2650            61.89%
+      0     2    11455.0073    37    30033.4800    11458.8350        5   61.85%
+Elapsed time = 1.40 sec. (80.81 ticks, tree = 0.01 MB, solutions = 1)
+*    10    10      integral     0    28744.3900    11746.7400      188   59.13%
+*    24    18      integral     0    14277.4900    11769.8400      381   17.56%
+
+Cover cuts applied:  2
+Gomory fractional cuts applied:  2
+User cuts applied:  54
+
+Root node processing (before b&c):
+  Real time             =    1.40 sec. (80.96 ticks)
+Sequential b&c:
+  Real time             =    0.18 sec. (144.37 ticks)
+                          ------------
+Total (root+branch&cut) =    1.58 sec. (225.33 ticks)
+SOLUTION ADMISSIBLE TROUVEE 30033.48 30033.48 99.0 103.0
+SOLUTION ADMISSIBLE TROUVEE 28744.389999999992 28744.39 82.0 103.0
+SOLUTION ADMISSIBLE TROUVEE 14277.489999999998 14277.49 101.0 103.0

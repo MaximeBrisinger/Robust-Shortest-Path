@@ -1,0 +1,64 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Tried aggregator 2 times.
+MIP Presolve eliminated 4 rows and 61 columns.
+MIP Presolve modified 57 coefficients.
+Aggregator did 1 substitutions.
+Reduced MIP has 2398 rows, 119126 columns, and 356124 nonzeros.
+Reduced MIP has 119126 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.30 sec. (347.56 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 2398 rows, 119126 columns, and 356124 nonzeros.
+Reduced MIP has 119126 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 5.14 sec. (4346.92 ticks)
+Probing time = 0.10 sec. (30.97 ticks)
+Clique table members: 14715.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.53 sec. (287.75 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    33099.3085    48                  33099.3085       16         
+*     0+    0                        34715.0000    33099.3085             4.65%
+*     0+    0                        34075.0000    33099.3085             2.86%
+
+Repeating presolve.
+Tried aggregator 3 times.
+MIP Presolve eliminated 1543 rows and 108205 columns.
+Aggregator did 43 substitutions.
+Reduced MIP has 812 rows, 10878 columns, and 32221 nonzeros.
+Reduced MIP has 10878 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.17 sec. (220.84 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 812 rows, 10878 columns, and 32221 nonzeros.
+Reduced MIP has 10878 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.17 sec. (177.27 ticks)
+Represolve time = 0.39 sec. (424.41 ticks)
+Probing time = 0.02 sec. (16.50 ticks)
+Clique table members: 21702.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.06 sec. (101.68 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                        34075.0000    33099.3085             2.86%
+      0     0    33099.3085    38    34075.0000    33099.3085      934    2.86%
+      0     0        cutoff          34075.0000    34075.0000      942    0.00%
+Elapsed time = 29.55 sec. (21709.79 ticks, tree = 0.01 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =   29.55 sec. (21712.57 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   29.55 sec. (21712.57 ticks)

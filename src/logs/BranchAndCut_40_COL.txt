@@ -1,0 +1,47 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_Threads                                 1
+CPXPARAM_TimeLimit                               100
+Generic callback                                 0xfe
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 8 columns.
+MIP Presolve modified 6 coefficients.
+Reduced MIP has 78 rows, 465 columns, and 1313 nonzeros.
+Reduced MIP has 464 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.55 ticks)
+Probing time = 0.00 sec. (0.63 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 78 rows, 465 columns, and 1313 nonzeros.
+Reduced MIP has 464 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.53 ticks)
+Probing time = 0.00 sec. (0.63 ticks)
+Clique table members: 463.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (0.22 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    11322.8133    13                      0.0000        1         
+*     0+    0                        15058.9700    11322.8133            24.81%
+      0     0    11365.5400    10    15058.9700      Fract: 1       19   24.53%
+      0     0    11387.6376    20    15058.9700      Fract: 1       28   24.38%
+      0     0    11641.0368    27    15058.9700 UserPurge1: 1       37   22.70%
+      0     2    11755.1449    25    15058.9700    11792.7200       37   21.69%
+Elapsed time = 1.33 sec. (31.04 ticks, tree = 0.01 MB, solutions = 1)
+    180    57    13918.5756    29    15058.9700    13800.4400      512    8.36%
+    283    60    14254.0614    21    15058.9700    14119.9100      670    6.24%
+    372    48        cutoff          15058.9700    14791.4400      804    1.78%
+    510    38        cutoff          15058.9700    14837.2500     1078    1.47%
+
+Gomory fractional cuts applied:  2
+User cuts applied:  367
+
+Root node processing (before b&c):
+  Real time             =    1.33 sec. (31.40 ticks)
+Sequential b&c:
+  Real time             =    0.67 sec. (1053.83 ticks)
+                          ------------
+Total (root+branch&cut) =    2.01 sec. (1085.23 ticks)
+SOLUTION ADMISSIBLE TROUVEE 15058.97 15058.970000000001 113.0 120.0

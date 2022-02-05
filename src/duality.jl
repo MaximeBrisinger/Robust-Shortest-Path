@@ -93,8 +93,23 @@ function solve_dual(input_graph, dict_row, verbose, CPU_time_limit)
     
 
     set_time_limit_sec(model, CPU_time_limit)
+    
+    
+    undo_relax = relax_integrality(model)
+    optimize!(model)
+
+    if has_values(model)
+        push!(dict_row, "root_node_relaxation" => objective_value(model))
+    else
+        push!(dict_row, "root_node_relaxation" => missing)
+    end
+
+    undo_relax()
+
     optimize!(model)
     
+
+
 
     if verbose
         println("SOLUTION :")

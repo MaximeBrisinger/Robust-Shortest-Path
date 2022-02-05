@@ -1,0 +1,41 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 10 columns.
+MIP Presolve modified 8 coefficients.
+Reduced MIP has 2399 rows, 66894 columns, and 199479 nonzeros.
+Reduced MIP has 66894 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.12 sec. (122.57 ticks)
+Found incumbent of value 60348.000000 after 0.98 sec. (673.73 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 2399 rows, 66894 columns, and 199479 nonzeros.
+Reduced MIP has 66894 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 2.07 sec. (1903.30 ticks)
+Probing time = 0.16 sec. (20.38 ticks)
+Clique table members: 134413.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.47 sec. (206.63 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                        60348.0000        0.0000           100.00%
+      0     0    55502.2236    70    60348.0000    55502.2236       15    8.03%
+*     0+    0                        59590.0000    55502.2236             6.86%
+      0     0    58627.6729    79    59590.0000      Fract: 1      248    1.61%
+      0     0        cutoff          59590.0000                    266    0.00%
+Elapsed time = 5.65 sec. (4480.76 ticks, tree = 0.01 MB, solutions = 2)
+
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    5.65 sec. (4484.17 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.65 sec. (4484.17 ticks)

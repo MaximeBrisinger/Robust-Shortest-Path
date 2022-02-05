@@ -1,0 +1,52 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_Threads                                 1
+CPXPARAM_TimeLimit                               100
+Generic callback                                 0xfe
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 9 columns.
+MIP Presolve modified 7 coefficients.
+Reduced MIP has 1098 rows, 29356 columns, and 86965 nonzeros.
+Reduced MIP has 29355 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (26.13 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 1098 rows, 29356 columns, and 86965 nonzeros.
+Reduced MIP has 29355 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.51 ticks)
+Probing time = 0.01 sec. (8.37 ticks)
+Clique table members: 3437.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.01 sec. (13.28 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    17858.6693    14                      0.0000        5         
+*     0+    0                        22317.2400    17858.6693            19.98%
+Advanced basis not built.
+      0     2    18280.4150    28    22317.2400    18280.4150        5   18.09%
+Elapsed time = 6.85 sec. (2040.54 ticks, tree = 0.01 MB, solutions = 1)
+     10    12    19601.3700     0    22317.2400    18708.2767       78   16.17%
+     12    14    21881.0282   450    22317.2400    18708.2767      113   16.17%
+     13    15    19601.7882   413    22317.2400    18708.2767      713   16.17%
+     14    16    19601.7882   398    22317.2400    18708.2767     1232   16.17%
+     19    21    19601.7882   386    22317.2400    18708.2767     1312   16.17%
+     21    23    19601.7882   360    22317.2400    18708.2767     1606   16.17%
+     26    28    19602.1367   220    22317.2400    18708.2767     1744   16.17%
+     30    32    22197.6300     0    22317.2400    18708.2767     1848   16.17%
+     31    32    22202.4144    75    22317.2400    18708.2767     1848   16.17%
+     32    32    22202.2304    78    22317.2400    18708.2767     1848   16.17%
+Elapsed time = 92.52 sec. (67323.23 ticks, tree = 0.67 MB, solutions = 1)
+     54    52    22237.5000     9    22317.2400    18708.2767     1870   16.17%
+     60    55    19082.5300    21    22317.2400    18722.9796     1878   16.11%
+
+User cuts applied:  425
+
+Root node processing (before b&c):
+  Real time             =    6.87 sec. (2074.28 ticks)
+Sequential b&c:
+  Real time             =   92.87 sec. (73370.06 ticks)
+                          ------------
+Total (root+branch&cut) =   99.74 sec. (75444.34 ticks)
+SOLUTION ADMISSIBLE TROUVEE 22317.24 22317.24 603.0 642.0

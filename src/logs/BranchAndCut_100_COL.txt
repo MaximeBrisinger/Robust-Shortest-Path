@@ -1,0 +1,218 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_Threads                                 1
+CPXPARAM_TimeLimit                               100
+Generic callback                                 0xfe
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 8 columns.
+MIP Presolve modified 6 coefficients.
+Reduced MIP has 198 rows, 1449 columns, and 4145 nonzeros.
+Reduced MIP has 1448 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.43 ticks)
+Probing time = 0.00 sec. (2.37 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 198 rows, 1449 columns, and 4145 nonzeros.
+Reduced MIP has 1448 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.39 ticks)
+Probing time = 0.00 sec. (2.36 ticks)
+Clique table members: 1150.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (0.66 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    21951.9750    34                      0.0000        3         
+*     0+    0                        25582.6000    21951.9750            14.19%
+      0     0    22908.8382    35    25582.6000      Fract: 2       13   10.45%
+
+Repeating presolve.
+Tried aggregator 2 times.
+MIP Presolve eliminated 28 rows and 788 columns.
+Aggregator did 11 substitutions.
+Reduced MIP has 159 rows, 650 columns, and 1787 nonzeros.
+Reduced MIP has 649 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.39 ticks)
+Probing time = 0.00 sec. (1.10 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 159 rows, 650 columns, and 1787 nonzeros.
+Reduced MIP has 649 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.72 ticks)
+Represolve time = 0.01 sec. (5.04 ticks)
+Probing time = 0.00 sec. (1.10 ticks)
+Clique table members: 1503.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (2.53 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                        25582.6000    22908.8382            10.45%
+      0     0    22936.8125    39    25582.6000    22936.8125       81   10.34%
+      0     0    22936.8125    46    25582.6000 UserPurge1: 1       84   10.34%
+      0     2    22936.8125    41    25582.6000    22936.8125       84   10.34%
+Elapsed time = 1.46 sec. (131.50 ticks, tree = 0.01 MB, solutions = 1)
+*    20+   20                        25320.1500    22936.8125             9.41%
+    230   172    25136.5400    16    25320.1500    23125.5904     1899    8.67%
+    401   286    23636.4960    24    25320.1500    23231.1689     3072    8.25%
+    530   370    23385.0146    44    25320.1500    23231.1689     3924    8.25%
+    660   456    24847.4200     0    25320.1500    23234.2765     4616    8.24%
+    740   476    24603.1433     4    25320.1500    23377.1942     5191    7.67%
+    816   516    23995.5050    10    25320.1500    23452.9672     5825    7.37%
+    890   546        cutoff          25320.1500    23608.7342     6224    6.76%
+    960   583    24247.2976    15    25320.1500    23630.5942     6590    6.67%
+   1026   609        cutoff          25320.1500    23630.5942     6980    6.67%
+   1279   726    23738.9560    24    25320.1500    23630.5942     8378    6.67%
+Elapsed time = 3.82 sec. (3269.91 ticks, tree = 0.40 MB, solutions = 2)
+   1464   800        cutoff          25320.1500    23633.1333     9390    6.66%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 10 columns.
+MIP Presolve modified 555 coefficients.
+Aggregator did 3 substitutions.
+Reduced MIP has 156 rows, 637 columns, and 1304 nonzeros.
+Reduced MIP has 636 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.29 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 156 rows, 637 columns, and 1304 nonzeros.
+Reduced MIP has 636 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.71 ticks)
+Represolve time = 0.15 sec. (23.51 ticks)
+   1518     0    23266.1160   100    25320.1500      Fract: 1    10413    6.66%
+   1518     0    23384.1958    80    25320.1500      Fract: 1    10491    6.66%
+   1535    15    23522.9800    57    25320.1500    23633.4960    10597    6.66%
+   1710    94    24302.3195    49    25320.1500    23633.4960    11619    6.66%
+   1911   207    24873.4857    18    25320.1500    23633.4960    12663    6.66%
+   2136   335    24166.2623    12    25320.1500    23673.7175    13691    6.50%
+   2356   477    25180.6333     9    25320.1500    23816.2759    14394    5.94%
+   2542   564        cutoff          25320.1500    23824.4550    15014    5.91%
+   2687   608        cutoff          25320.1500    23845.4550    15573    5.82%
+   2841   654        cutoff          25320.1500    24029.7800    16224    5.10%
+   2999   726        cutoff          25320.1500    24029.7800    16704    5.10%
+Elapsed time = 10.47 sec. (12903.73 ticks, tree = 0.47 MB, solutions = 2)
+   3128   776        cutoff          25320.1500    24029.7800    17106    5.10%
+   3248   825        cutoff          25320.1500    24029.7800    17498    5.10%
+   3398   929    24213.7583    25    25320.1500    24029.7800    17945    5.10%
+   3537  1014        cutoff          25320.1500    24029.7800    18403    5.10%
+   3648  1078    24136.5296    35    25320.1500    24029.7800    18799    5.10%
+   3800  1171    24050.7800    12    25320.1500    24029.7800    19254    5.10%
+   3879  1185        cutoff          25320.1500    24032.7800    19576    5.08%
+   3986  1202        cutoff          25320.1500    24039.0355    20020    5.06%
+   4081  1203        cutoff          25320.1500    24040.6959    20462    5.05%
+   4159  1175    infeasible          25320.1500    24041.8383    20798    5.05%
+Elapsed time = 16.11 sec. (22546.87 ticks, tree = 0.81 MB, solutions = 2)
+   4249  1154    infeasible          25320.1500    24050.7800    21172    5.01%
+   4333  1132        cutoff          25320.1500    24050.7800    21480    5.01%
+   4419  1116        cutoff          25320.1500    24078.8862    21863    4.90%
+   4536  1188    24515.1350     6    25320.1500    24119.9908    22342    4.74%
+   4621  1217        cutoff          25320.1500    24125.9300    22550    4.72%
+   4703  1242        cutoff          25320.1500    24125.9300    22757    4.72%
+   4769  1257    25107.0433    15    25320.1500    24125.9300    22932    4.72%
+   4856  1296    24162.7628    22    25320.1500    24125.9300    23150    4.72%
+   4938  1330        cutoff          25320.1500    24125.9300    23333    4.72%
+   5005  1352        cutoff          25320.1500    24125.9300    23522    4.72%
+Elapsed time = 21.69 sec. (32284.29 ticks, tree = 0.95 MB, solutions = 2)
+   5062  1363    24214.4373    24    25320.1500    24125.9300    23743    4.72%
+   5118  1370    25160.3200     6    25320.1500    24125.9300    23928    4.72%
+   5185  1389        cutoff          25320.1500    24125.9300    24164    4.72%
+   5260  1416        cutoff          25320.1500    24126.8652    24368    4.71%
+   5318  1424        cutoff          25320.1500    24127.6458    24544    4.71%
+   5397  1445    24405.4490    16    25320.1500    24129.3475    24776    4.70%
+   5474  1438        cutoff          25320.1500    24132.3700    24998    4.69%
+   5528  1427    24883.5000     6    25320.1500    24135.5526    25205    4.68%
+   5581  1405        cutoff          25320.1500    24136.5296    25398    4.67%
+   5644  1399        cutoff          25320.1500    24137.9408    25635    4.67%
+Elapsed time = 27.34 sec. (42017.21 ticks, tree = 1.00 MB, solutions = 2)
+   5699  1385        cutoff          25320.1500    24138.6097    25842    4.67%
+   5763  1359        cutoff          25320.1500    24140.6898    26042    4.66%
+   5829  1347        cutoff          25320.1500    24144.8499    26241    4.64%
+   5894  1314    24913.5350     6    25320.1500    24146.9300    26466    4.63%
+   5953  1287        cutoff          25320.1500    24146.9300    26628    4.63%
+   6011  1261        cutoff          25320.1500    24146.9300    26848    4.63%
+   6069  1235        cutoff          25320.1500    24146.9300    27062    4.63%
+   6134  1198        cutoff          25320.1500    24146.9300    27304    4.63%
+   6199  1169        cutoff          25320.1500    24146.9300    27538    4.63%
+   6249  1147        cutoff          25320.1500    24190.9714    27725    4.46%
+Elapsed time = 32.94 sec. (51703.60 ticks, tree = 0.83 MB, solutions = 2)
+   6291  1134        cutoff          25320.1500    24209.7930    27868    4.39%
+   6324  1125    25160.3200     6    25320.1500    24222.0800    27959    4.34%
+   6386  1137        cutoff          25320.1500    24222.0800    28102    4.34%
+   6458  1166    25064.4220    15    25320.1500    24222.0800    28287    4.34%
+   6511  1126        cutoff          25320.1500    24243.0800    28448    4.25%
+   6549  1108    24297.4936    17    25320.1500    24247.1176    28570    4.24%
+   6578  1097    24889.7021    22    25320.1500    24284.7956    28674    4.09%
+   6622  1072        cutoff          25320.1500    24307.9475    29066    4.00%
+   6664  1032        cutoff          25320.1500    24329.2228    29370    3.91%
+   6698  1004        cutoff          25320.1500    24349.4400    29533    3.83%
+Elapsed time = 38.91 sec. (61433.38 ticks, tree = 0.75 MB, solutions = 2)
+   6731   985        cutoff          25320.1500    24391.6323    29792    3.67%
+   6771   991        cutoff          25320.1500    24397.5400    29899    3.64%
+   6816  1013    25080.4050    12    25320.1500    24397.5400    30016    3.64%
+   6849  1016        cutoff          25320.1500    24397.5400    30182    3.64%
+   6885  1028    24717.2000     4    25320.1500    24397.5400    30297    3.64%
+   6928  1042    24450.8167    24    25320.1500    24397.5400    30468    3.64%
+   6953  1038        cutoff          25320.1500    24397.5400    30558    3.64%
+   6987  1043    24461.4720    25    25320.1500    24397.5400    30716    3.64%
+   7020  1055    25080.4050    12    25320.1500    24397.5400    30859    3.64%
+   7062  1042    24697.3266     6    25320.1500    24432.6282    31086    3.51%
+Elapsed time = 45.14 sec. (71335.57 ticks, tree = 0.79 MB, solutions = 2)
+   7118  1039    24918.1833    10    25320.1500    24450.8167    31267    3.43%
+   7155  1050        cutoff          25320.1500    24452.1350    31371    3.43%
+   7187  1045    24717.2000     4    25320.1500    24461.4720    31463    3.39%
+   7233  1051        cutoff          25320.1500    24472.7497    31619    3.35%
+   7274  1052    24717.2000     4    25320.1500    24477.4550    31774    3.33%
+   7306  1047        cutoff          25320.1500    24485.0727    31885    3.30%
+   7346  1037        cutoff          25320.1500    24500.0522    31994    3.24%
+   7371  1027        cutoff          25320.1500    24504.6350    32126    3.22%
+   7402  1010        cutoff          25320.1500    24515.1350    32194    3.18%
+   7427  1001        cutoff          25320.1500    24515.1350    32241    3.18%
+Elapsed time = 51.22 sec. (81121.17 ticks, tree = 0.77 MB, solutions = 2)
+   7469   988        cutoff          25320.1500    24515.2150    32350    3.18%
+   7512   967        cutoff          25320.1500    24534.5528    32491    3.10%
+Advanced basis not built.
+   7560   958        cutoff          25320.1500    24546.9072    32619    3.05%
+   7588   957    25160.3200     6    25320.1500    24557.3700    32718    3.01%
+   7617   956        cutoff          25320.1500    24568.8317    32809    2.97%
+   7648   944    25107.0433     9    25320.1500    24605.7523    32916    2.82%
+   7681   932        cutoff          25320.1500    24641.9424    33045    2.68%
+   7706   912        cutoff          25320.1500    24696.4153    33132    2.46%
+   7727   903    24717.2000     6    25320.1500    24699.0150    33184    2.45%
+   7820   867        cutoff          25320.1500    24717.2000    33492    2.38%
+Elapsed time = 59.11 sec. (93745.30 ticks, tree = 0.68 MB, solutions = 2)
+   7902   824        cutoff          25320.1500    24717.2000    33692    2.38%
+   7978   777        cutoff          25320.1500    24717.2000    33897    2.38%
+   8063   741        cutoff          25320.1500    24717.2000    34179    2.38%
+   8164   741    24717.2000     4    25320.1500    24717.2000    34443    2.38%
+   8247   694        cutoff          25320.1500    24777.2700    34739    2.14%
+   8310   637        cutoff          25320.1500    24787.3500    35001    2.10%
+   8414   555        cutoff          25320.1500    24883.5000    35493    1.72%
+   8504   487        cutoff          25320.1500    24916.4900    35880    1.59%
+   8557   444        cutoff          25320.1500    24942.6923    36181    1.49%
+   8612   401    25080.4050    12    25320.1500    24971.2966    36403    1.38%
+Elapsed time = 83.97 sec. (132252.03 ticks, tree = 0.36 MB, solutions = 2)
+   8706   337        cutoff          25320.1500    24981.8930    36659    1.34%
+   8758   300        cutoff          25320.1500    25000.4900    36860    1.26%
+   8810   250        cutoff          25320.1500    25000.4900    36963    1.26%
+Starting limited solution polishing.
+   8866   204        cutoff          25320.1500    25000.4900    37061    1.26%
+   8915   157    25160.3200     6    25320.1500    25000.4900    37194    1.26%
+   8967   119        cutoff          25320.1500    25000.4900    37364    1.26%
+Advanced basis not built.
+
+Gomory fractional cuts applied:  3
+User cuts applied:  2976
+
+Root node processing (before b&c):
+  Real time             =    1.46 sec. (136.27 ticks)
+Sequential b&c:
+  Real time             =   98.23 sec. (155916.40 ticks)
+                          ------------
+Total (root+branch&cut) =   99.69 sec. (156052.66 ticks)
+SOLUTION ADMISSIBLE TROUVEE 25582.599999999995 25582.6 122.0 132.0
+SOLUTION ADMISSIBLE TROUVEE 25320.150000000005 25320.15 131.0 132.0

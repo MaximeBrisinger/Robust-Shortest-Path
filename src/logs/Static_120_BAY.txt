@@ -1,0 +1,36 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 10 columns.
+MIP Presolve modified 8 coefficients.
+Reduced MIP has 239 rows, 3000 columns, and 8878 nonzeros.
+Reduced MIP has 3000 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (4.77 ticks)
+Found incumbent of value 10197.000000 after 0.02 sec. (19.15 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 239 rows, 3000 columns, and 8878 nonzeros.
+Reduced MIP has 3000 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (14.09 ticks)
+Probing time = 0.00 sec. (2.74 ticks)
+Clique table members: 1290.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (3.34 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                        10197.0000        0.0000           100.00%
+*     0     0      integral     0    10034.0000    10034.0000       76    0.00%
+Elapsed time = 0.04 sec. (43.37 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.04 sec. (43.52 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.04 sec. (43.52 ticks)

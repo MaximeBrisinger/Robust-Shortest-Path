@@ -1,0 +1,87 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Parallel mode: deterministic, using up to 8 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting Barrier on 6 threads...
+ * Starting primal Simplex on 1 thread...
+Tried aggregator 1 time.
+LP Presolve eliminated 29 rows and 54 columns.
+Aggregator did 2 substitutions.
+Reduced LP has 17958 rows, 34118 columns, and 102350 nonzeros.
+Presolve time = 0.06 sec. (34.88 ticks)
+Symmetry aggregator did 51311 additional substitutions.
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          4052.000000
+Iteration:    62   Dual objective     =         19806.315000
+Iteration:   124   Dual objective     =         26436.389176
+Iteration:   186   Dual objective     =         31847.486115
+
+Dual crossover.
+  Dual:  Fixing 353 variables.
+      352 DMoves:  Infeasibility  1.99251815e-09  Objective  3.19307977e+04
+        0 DMoves:  Infeasibility  3.31326078e-10  Objective  3.19307977e+04
+  Dual:  Pushed 72, exchanged 281.
+  Primal:  Fixing 2471 variables.
+     2470 PMoves:  Infeasibility  0.00000000e+00  Objective  3.19307977e+04
+      487 PMoves:  Infeasibility  0.00000000e+00  Objective  3.19307977e+04
+        0 PMoves:  Infeasibility  3.72965547e-17  Objective  3.19307977e+04
+  Primal:  Pushed 1846, exchanged 625.
+
+Dual simplex solved model.
+
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Warning:  Non-integral bounds for integer variables rounded.
+Warning:  Non-integral bounds for integer variables rounded.
+Probing fixed 0 vars, tightened 451 bounds.
+Probing time = 1.20 sec. (243.04 ticks)
+Clique table members: 17122.
+Warning:  Non-integral bounds for integer variables rounded.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.40 sec. (147.00 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    31930.7977   308                  31930.7977        0         
+*     0+    0                        39604.9600    31930.7977            19.38%
+      0     0    31930.7977   216    39604.9600      Cuts: 42       36   19.38%
+      0     0    31930.7977   217    39604.9600      Cuts: 56       49   15.96%
+      0     0    31930.7977   199    39604.9600      Cuts: 39       77   15.96%
+      0     0    31930.7977   197    39604.9600      Cuts: 59       92   15.96%
+Detecting symmetries...
+      0     2    31930.7977   184    39604.9600    33284.3926       92   15.96%
+Elapsed time = 9.91 sec. (6123.24 ticks, tree = 0.02 MB, solutions = 1)
+      1     3    32254.8190   180    39604.9600    33284.3926      178   15.96%
+*     2+    1                        39224.0000    33284.3926            15.14%
+      2     3    32254.8190   177    39224.0000    33284.3926      151   15.14%
+      3     4    35838.2350   129    39224.0000    33284.3926      356   15.14%
+      6     6    36220.6395   127    39224.0000    33284.3926      573   15.14%
+     10     7    36550.7405   128    39224.0000    33284.3926     1240   15.14%
+     16     7    36550.7405   137    39224.0000    33284.3926     1246   15.14%
+     23    12    39050.2333    45    39224.0000    33284.3926     4084   15.14%
+     43    12    38737.6851    41    39224.0000    33284.3926     5108   15.14%
+     63     8    39022.1800    20    39224.0000    33613.8837    12949   14.30%
+     73     6    35288.2733    62    39224.0000    33613.8837    16047   14.30%
+Elapsed time = 15.84 sec. (9683.12 ticks, tree = 0.17 MB, solutions = 2)
+     90    10    38883.4443   244    39224.0000    34012.4024    18198   13.29%
+    120     9    38028.4925   115    39224.0000    35006.5233    28706   10.75%
+    150     7    38397.1971   227    39224.0000    35632.3642    31744    9.16%
+    160     2    37076.6096   416    39224.0000    36561.1153    42226    6.79%
+    163     1        cutoff          39224.0000    37076.6096    47886    5.47%
+
+Flow cuts applied:  6
+Mixed integer rounding cuts applied:  8
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    9.86 sec. (6088.07 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   15.08 sec. (9910.57 ticks)
+  Sync time (average)   =    6.76 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   24.94 sec. (15998.65 ticks)

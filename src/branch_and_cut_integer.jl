@@ -1,6 +1,6 @@
 # include("data.jl")
 
-module BranchAndCut
+module BranchAndCutInt
 
 export branch_and_cut_integer
 
@@ -152,11 +152,12 @@ function branch_and_cut_integer(input_graph, dict_row, verbose, CPU_time_limit)
             sol_sp2, val_sp2 = SP2(vertexes, input_graph)
     
             if z_val + eps <= val_sp1 || input_graph.S + eps <= val_sp2 #solution non optimale
-                println(z_val," ", val_sp1, " ", val_sp2, " ", input_graph.S) 
-                cstr1 = @build_constraint(z >= sum(a[3] * (1 + a[4]) * x[(a[1], a[2])] for a in sol_sp1))
+                # println(z_val," ", val_sp1, " ", val_sp2, " ", input_graph.S) 
+                
+                cstr1 = @build_constraint(z >= sum(a[3] * a[4] * x[(a[1], a[2])] for a in sol_sp1) + sum(x[(a[1], a[2])] * input_graph.traveltime_matrix[a[1], a[2]] for a in input_graph.arcs))
                 MOI.submit(model, MOI.LazyConstraint(cb_data), cstr1)
     
-                cstr2 = @build_constraint(sum(y[v[1]] * (v[2] + v[3] * v[4]) for v in sol_sp2) <= input_graph.S)
+                cstr2 = @build_constraint(sum(y[v[1]] * input_graph.weights[v] for v in 1:input_graph.n) + sum(y[v[1]] * v[3] * v[4] for v in sol_sp2) <= input_graph.S)
                 MOI.submit(model, MOI.LazyConstraint(cb_data), cstr2)
 
                 n_added_cuts += 2

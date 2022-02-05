@@ -1,0 +1,92 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Parallel mode: deterministic, using up to 8 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting Barrier on 6 threads...
+ * Starting primal Simplex on 1 thread...
+Tried aggregator 1 time.
+LP Presolve eliminated 108 rows and 113 columns.
+Reduced LP has 125967 rows, 244833 columns, and 734398 nonzeros.
+Presolve time = 0.56 sec. (263.27 ticks)
+Symmetry aggregator did 290959 additional substitutions.
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          2554.000000
+Iteration:   266   Dual objective     =         27719.840000
+Iteration:   545   Dual objective     =         37076.840000
+Iteration:   872   Dual objective     =         47002.236487
+Iteration:  1155   Dual objective     =         53651.841301
+Iteration:  1427   Dual objective     =         59387.958410
+Iteration:  1684   Dual objective     =         61260.064189
+Perturbation started.
+Iteration:  1717   Dual objective     =         61260.064189
+Iteration:  1964   Dual objective     =         61260.064192
+Iteration:  2197   Dual objective     =         61260.064195
+Iteration:  2430   Dual objective     =         61260.064199
+Iteration:  2659   Dual objective     =         61261.317316
+Iteration:  2917   Dual objective     =         61495.636235
+Iteration:  3139   Dual objective     =         61495.636241
+Iteration:  3382   Dual objective     =         61495.636250
+Iteration:  3672   Dual objective     =         61495.636301
+Iteration:  3940   Dual objective     =         61600.281193
+Removing perturbation.
+
+Dual crossover.
+  Dual:  Fixing 1855 variables.
+     1854 DMoves:  Infeasibility  5.26740607e-09  Objective  6.17769676e+04
+        0 DMoves:  Infeasibility  2.72501666e-09  Objective  6.17769676e+04
+  Dual:  Pushed 59, exchanged 1796.
+  Primal:  Fixing 123 variables.
+      122 PMoves:  Infeasibility  0.00000000e+00  Objective  6.17769676e+04
+        0 PMoves:  Infeasibility  6.93889390e-18  Objective  6.17769676e+04
+  Primal:  Pushed 79, exchanged 44.
+
+Barrier solved model.
+
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Warning:  Non-integral bounds for integer variables rounded.
+Warning:  Non-integral bounds for integer variables rounded.
+Probing time = 0.94 sec. (97.46 ticks)
+Cover probing fixed 0 vars, tightened 1801 bounds.
+Clique table members: 2831.
+Warning:  Non-integral bounds for integer variables rounded.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 6.13 sec. (1374.57 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    61776.9676   326                  61776.9676        0         
+*     0+    0                        74926.0000    61776.9676            17.55%
+      0     0    61889.9380   282    74926.0000     Cuts: 161       43   17.40%
+      0     0    62055.2961   343    74926.0000     Cuts: 141      207   17.18%
+      0     0    62178.9631   316    74926.0000     Cuts: 180      251   17.01%
+*     0+    0                        74735.0000    62178.9631            16.80%
+      0     0  -1.00000e+75     0    74735.0000    62178.9631      251   16.80%
+      0     0    62178.9631   315    74735.0000     Cuts: 154      307   16.80%
+      0     0    62178.9631   309    74735.0000     Cuts: 147      400   16.80%
+      0     0    62178.9631   315    74735.0000     Cuts: 208      498   16.80%
+*     0+    0                        73108.2400    62178.9631            14.95%
+*     0+    0                        72511.7900    62178.9631            14.25%
+      0     0  -1.00000e+75     0    72511.7900    62178.9631      498   14.25%
+Detecting symmetries...
+Elapsed time for symmetry detection = 39.87 sec. (10000.70 ticks)
+Found 1.276910e+338 symmetric permutations.
+      0     2    62178.9631   315    72511.7900    62178.9631      498   14.25%
+Elapsed time = 99.29 sec. (47910.63 ticks, tree = 0.02 MB, solutions = 4)
+
+Flow cuts applied:  97
+Mixed integer rounding cuts applied:  243
+Gomory fractional cuts applied:  12
+
+Root node processing (before b&c):
+  Real time             =   98.93 sec. (47680.91 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    1.34 sec. (1054.85 ticks)
+  Sync time (average)   =    0.80 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  100.27 sec. (48735.76 ticks)

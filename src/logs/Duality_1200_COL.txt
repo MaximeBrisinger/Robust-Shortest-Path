@@ -1,0 +1,84 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Parallel mode: deterministic, using up to 8 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting Barrier on 6 threads...
+ * Starting primal Simplex on 1 thread...
+Tried aggregator 1 time.
+LP Presolve eliminated 110 rows and 167 columns.
+Aggregator did 2 substitutions.
+Reduced LP has 121479 rows, 238209 columns, and 714574 nonzeros.
+Presolve time = 0.61 sec. (276.31 ticks)
+Symmetry aggregator did 320366 additional substitutions.
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          1921.000000
+Iteration:   214   Dual objective     =         18999.368000
+Iteration:   451   Dual objective     =         24442.368000
+Iteration:   641   Dual objective     =         27944.368000
+Iteration:   862   Dual objective     =         31725.368000
+Perturbation started.
+Iteration:   909   Dual objective     =         31725.368000
+Iteration:  1134   Dual objective     =         31725.368004
+Iteration:  1410   Dual objective     =         31725.368011
+Iteration:  1634   Dual objective     =         31725.368016
+Iteration:  1900   Dual objective     =         31725.368024
+Iteration:  2200   Dual objective     =         31725.368033
+Iteration:  2445   Dual objective     =         31725.368067
+Iteration:  2699   Dual objective     =         32013.796664
+Iteration:  2971   Dual objective     =         32872.536511
+Iteration:  3264   Dual objective     =         33708.685401
+Iteration:  3500   Dual objective     =         34474.778808
+Removing perturbation.
+
+Dual crossover.
+  Dual:  Fixing 1870 variables.
+     1869 DMoves:  Infeasibility  6.52610765e-09  Objective  3.49336818e+04
+        0 DMoves:  Infeasibility  2.57534793e-09  Objective  3.49336818e+04
+  Dual:  Pushed 63, exchanged 1807.
+  Primal:  Fixing 185 variables.
+      184 PMoves:  Infeasibility  0.00000000e+00  Objective  3.49336818e+04
+        0 PMoves:  Infeasibility  5.55111512e-17  Objective  3.49336818e+04
+  Primal:  Pushed 118, exchanged 67.
+
+Barrier solved model.
+
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Warning:  Non-integral bounds for integer variables rounded.
+Warning:  Non-integral bounds for integer variables rounded.
+Probing fixed 0 vars, tightened 1201 bounds.
+Probing time = 10.84 sec. (2167.75 ticks)
+Clique table members: 35061.
+Warning:  Non-integral bounds for integer variables rounded.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.31 sec. (162.44 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    34933.6818   272                  34933.6818        0         
+*     0+    0                        42766.5000    34933.6818            18.32%
+      0     0    35016.0262   196    42766.5000      Cuts: 12      123   18.12%
+      0     0    35043.8337   222    42766.5000      Cuts: 73      232   18.06%
+      0     0    35581.4175   142    42766.5000      Cuts: 60      267   16.80%
+      0     0    35581.6008   148    42766.5000      Cuts: 35      306   16.80%
+      0     0    35581.6008   112    42766.5000      Cuts: 27      345   16.80%
+      0     0    35581.6008   115    42766.5000      Cuts: 54      364   16.80%
+Detecting symmetries...
+Elapsed time for symmetry detection = 46.24 sec. (10000.18 ticks)
+
+Flow cuts applied:  12
+Mixed integer rounding cuts applied:  25
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =  100.03 sec. (37650.09 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  100.03 sec. (37650.09 ticks)

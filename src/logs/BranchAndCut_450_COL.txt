@@ -1,0 +1,43 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_Threads                                 1
+CPXPARAM_TimeLimit                               100
+Generic callback                                 0xfe
+Tried aggregator 2 times.
+MIP Presolve eliminated 4 rows and 29 columns.
+MIP Presolve modified 25 coefficients.
+Aggregator did 1 substitutions.
+Reduced MIP has 897 rows, 17057 columns, and 50248 nonzeros.
+Reduced MIP has 17056 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (26.26 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 897 rows, 17057 columns, and 50248 nonzeros.
+Reduced MIP has 17056 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (14.93 ticks)
+Probing time = 0.01 sec. (5.75 ticks)
+Clique table members: 1680.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.01 sec. (8.09 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    29291.1466    42                      0.0000        6         
+*     0+    0                        40704.4800    29291.1466            28.04%
+      0     0    31767.4471    50    40704.4800    MIRcuts: 1       92   21.96%
+      0     0    31918.0800     5    40704.4800    MIRcuts: 1      111   21.59%
+      0     2    31927.0800    40    40704.4800    32497.8331      111   20.16%
+Elapsed time = 6.40 sec. (2609.85 ticks, tree = 0.01 MB, solutions = 1)
+      4     6    38963.4800     6    40704.4800    33093.1600      380   18.70%
+
+Mixed integer rounding cuts applied:  2
+User cuts applied:  622
+
+Root node processing (before b&c):
+  Real time             =    6.42 sec. (2638.52 ticks)
+Sequential b&c:
+  Real time             =   93.33 sec. (98088.56 ticks)
+                          ------------
+Total (root+branch&cut) =   99.75 sec. (100727.08 ticks)
+SOLUTION ADMISSIBLE TROUVEE 40704.48 40704.479999999996 323.0 457.0

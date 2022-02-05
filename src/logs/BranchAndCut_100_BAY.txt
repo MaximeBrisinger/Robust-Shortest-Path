@@ -1,0 +1,88 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_Threads                                 1
+CPXPARAM_TimeLimit                               100
+Generic callback                                 0xfe
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 12 columns.
+MIP Presolve modified 10 coefficients.
+Reduced MIP has 198 rows, 2365 columns, and 6890 nonzeros.
+Reduced MIP has 2364 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (2.24 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 198 rows, 2365 columns, and 6890 nonzeros.
+Reduced MIP has 2364 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (2.17 ticks)
+Probing time = 0.00 sec. (2.61 ticks)
+Clique table members: 804.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (1.01 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0     8835.9100    14                      0.0000        4         
+*     0+    0                        10857.0600     8835.9100            18.62%
+
+Repeating presolve.
+Tried aggregator 3 times.
+MIP Presolve eliminated 31 rows and 929 columns.
+MIP Presolve modified 6 coefficients.
+Aggregator did 12 substitutions.
+Reduced MIP has 155 rows, 1424 columns, and 4099 nonzeros.
+Reduced MIP has 1423 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.87 ticks)
+Probing time = 0.00 sec. (2.41 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 155 rows, 1424 columns, and 4099 nonzeros.
+Reduced MIP has 1423 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.36 ticks)
+Represolve time = 0.01 sec. (11.10 ticks)
+Probing time = 0.00 sec. (2.40 ticks)
+Clique table members: 1269.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (6.53 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                        10857.0600     8835.9100            18.62%
+      0     0     8961.3626    44    10857.0600     8961.3626      164   17.46%
+      0     2     8961.4063    36    10857.0600     9009.3428      164   17.02%
+Elapsed time = 1.50 sec. (150.18 ticks, tree = 0.01 MB, solutions = 1)
+    160   109     9542.6725    17    10857.0600     9341.9571     1428   13.96%
+    222   131     9374.0233    31    10857.0600     9363.2594     2189   13.76%
+    271   140    10670.3050     6    10857.0600     9385.9571     2914   13.55%
+    300   130    10558.2520    15    10857.0600     9426.5450     3455   13.18%
+    332   133    10558.2520    15    10857.0600     9428.5220     3655   13.16%
+    348   140    10558.2520    15    10857.0600     9428.5220     3822   13.16%
+    390   153        cutoff          10857.0600     9428.5220     4304   13.16%
+    418   163        cutoff          10857.0600     9428.5220     4544   13.16%
+    443   165     9995.4120    15    10857.0600     9432.2900     5048   13.12%
+    543   196    10558.2520    15    10857.0600     9439.9835     6475   13.05%
+Elapsed time = 4.77 sec. (3378.20 ticks, tree = 0.16 MB, solutions = 1)
+    619   214        cutoff          10857.0600     9449.7171     7267   12.96%
+    710   241    10483.5500     0    10857.0600     9472.5220     7691   12.75%
+    777   252    10045.2133     9    10857.0600     9534.3150     8194   12.18%
+    834   240        cutoff          10857.0600     9695.9700     8454   10.69%
+    883   234        cutoff          10857.0600     9995.4120     8603    7.94%
+    923   200        cutoff          10857.0600    10294.2200     8745    5.18%
+    957   166        cutoff          10857.0600    10294.2200     8870    5.18%
+    990   133        cutoff          10857.0600    10294.2200     9007    5.18%
+   1021   102        cutoff          10857.0600    10294.2200     9152    5.18%
+   1062    71    10576.9275    12    10857.0600    10483.5500     9231    3.44%
+Elapsed time = 11.47 sec. (13026.16 ticks, tree = 0.08 MB, solutions = 1)
+
+Cover cuts applied:  1
+User cuts applied:  660
+
+Root node processing (before b&c):
+  Real time             =    1.50 sec. (152.67 ticks)
+Sequential b&c:
+  Real time             =   10.25 sec. (13667.07 ticks)
+                          ------------
+Total (root+branch&cut) =   11.75 sec. (13819.74 ticks)
+SOLUTION ADMISSIBLE TROUVEE 10857.060000000003 10857.06 139.0 144.0

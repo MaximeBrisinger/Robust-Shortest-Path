@@ -1,0 +1,86 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Parallel mode: deterministic, using up to 8 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting Barrier on 6 threads...
+ * Starting primal Simplex on 1 thread...
+Tried aggregator 1 time.
+LP Presolve eliminated 150 rows and 221 columns.
+Reduced LP has 152511 rows, 299497 columns, and 898414 nonzeros.
+Presolve time = 0.67 sec. (320.90 ticks)
+Symmetry aggregator did 410530 additional substitutions.
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          1921.000000
+Iteration:   209   Dual objective     =         18586.019048
+Iteration:   437   Dual objective     =         25161.019048
+Iteration:   652   Dual objective     =         28470.019048
+Iteration:   892   Dual objective     =         31312.019048
+Perturbation started.
+Iteration:   909   Dual objective     =         31312.019048
+Iteration:  1158   Dual objective     =         31312.019050
+Iteration:  1380   Dual objective     =         31312.019053
+Iteration:  1681   Dual objective     =         31312.019058
+Iteration:  1977   Dual objective     =         31312.019067
+Iteration:  2204   Dual objective     =         31312.019076
+Iteration:  2472   Dual objective     =         31312.019113
+Iteration:  2760   Dual objective     =         31405.210297
+Iteration:  3055   Dual objective     =         32219.905904
+Iteration:  3323   Dual objective     =         32820.060484
+Iteration:  3515   Dual objective     =         33476.999420
+Iteration:  3734   Dual objective     =         33567.764748
+Removing perturbation.
+
+Dual crossover.
+  Dual:  Fixing 2246 variables.
+     2245 DMoves:  Infeasibility  6.41203712e-09  Objective  3.37987254e+04
+        0 DMoves:  Infeasibility  7.10451786e-09  Objective  3.37987254e+04
+  Dual:  Pushed 35, exchanged 2211.
+  Primal:  Fixing 354 variables.
+      353 PMoves:  Infeasibility  0.00000000e+00  Objective  3.37987254e+04
+        0 PMoves:  Infeasibility  1.24900090e-16  Objective  3.37987254e+04
+  Primal:  Pushed 211, exchanged 143.
+
+Barrier solved model.
+
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               100
+Warning:  Non-integral bounds for integer variables rounded.
+Warning:  Non-integral bounds for integer variables rounded.
+Probing time = 1.10 sec. (109.75 ticks)
+Cover probing fixed 0 vars, tightened 1401 bounds.
+Clique table members: 2947.
+Warning:  Non-integral bounds for integer variables rounded.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.33 sec. (218.43 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    33798.7254   503                  33798.7254        0         
+      0     0    33891.6484   319                    Cuts: 96       56         
+*     0+    0                        42505.7000    33891.6484            20.27%
+      0     0    33951.2215   294    42505.7000     Cuts: 142      111   20.13%
+      0     0    33966.7614   322    42505.7000     Cuts: 202      290   20.09%
+      0     0    33981.3359   342    42505.7000     Cuts: 109      368   20.05%
+      0     0    33981.3359   346    42505.7000     Cuts: 121      410   20.05%
+      0     0    33992.1790   273    42505.7000     Cuts: 116      452   20.03%
+      0     0    33992.1790   280    42505.7000     Cuts: 124      499   20.03%
+Detecting symmetries...
+
+Flow cuts applied:  53
+Mixed integer rounding cuts applied:  73
+Lift and project cuts applied:  3
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =  100.04 sec. (40152.75 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  100.04 sec. (40152.75 ticks)
